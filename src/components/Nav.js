@@ -4,7 +4,7 @@ import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 
 const Nav = () => {
   return (
-    <div className="mb-10 p-10 px-20 bg-stone-100 flex justify-between">
+    <div className="mb-10 p-10 px-40 bg-stone-100 flex justify-between">
       <div>
         <h2 className="text-2xl font-bold">HomeySloth</h2>
       </div>
