@@ -33,7 +33,7 @@ const Home = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-7 pt-20 md:w-2/3">
             Design Your Comfort Zone
           </h1>
-          <p className="text-xl text-gray-400 mb-10 text-justify md:w-10/12 leading-10">
+          <p className="section-paragraph md:w-10/12">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
             sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
             aperiam odio ducimus, obcaecati libero et quia tempora excepturi
@@ -50,7 +50,7 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-center pb-3">
           Featured Products
         </h2>
-        <div className="bg-stone-500 w-20 h-1 mb-10 mx-auto"></div>
+        <div className="section-head-underline mx-auto"></div>
         <div className="md:flex md:justify-between mb-10">
           {data.map((el) => (
             <Item key={el} />

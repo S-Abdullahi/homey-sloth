@@ -19,3 +19,15 @@ code {
 .btn {
   @apply bg-stone-500 py-2 px-5 rounded-md text-gray-200
 }
+
+.section-paragraph{
+  @apply text-xl text-gray-400 mb-10 text-justify leading-10
+}
+
+.section-head{
+  @apply text-4xl font-bold pb-3 text-stone-800
+}
+
+.section-head-underline{
+  @apply bg-stone-500 w-20 h-1 mb-10
+}
