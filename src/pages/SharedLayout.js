@@ -1,12 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Nav from '../components/Nav'
+import {Nav, Footer} from '../components'
+
 
 const SharedLayout = () => {
   return (
-    <div>
+    <div className='relative'>
         <Nav/>
         <Outlet/>
+        <Footer/>
     </div>
   )
 }

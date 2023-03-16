@@ -4,11 +4,11 @@ import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 
 const Nav = () => {
   return (
-    <div className="mb-10 p-10 px-40 bg-stone-100 flex justify-between">
+    <div className="mb-10 p-10  md:px-40 bg-stone-100 flex justify-between">
       <div>
         <h2 className="text-2xl font-bold">HomeySloth</h2>
       </div>
-      <ul className="flex gap-10 justify-center">
+      <ul className=" hidden md:flex gap-10 justify-center">
         <li className="hover:underline transition:ease-linear">
           <Link to="/">Home</Link>
         </li>
@@ -24,7 +24,7 @@ const Nav = () => {
           <p className="text-xl">Cart</p>
           <div className="flex relative">
             <BsFillCartFill className="text-2xl" />
-            <div className="rounded-full bg-white w-6 h-6 flex justify-center align-middle absolute left-5 bottom-3">
+            <div className="rounded-full bg-stone-400 text-white w-6 h-6 flex justify-center align-middle absolute left-4 bottom-4">
               0
             </div>
           </div>
