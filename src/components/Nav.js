@@ -20,7 +20,7 @@ const Nav = () => {
         </li>
       </ul>
       <div className="flex gap-10">
-        <Link className="flex gap-1">
+        <Link className="flex gap-1" to='/cart'>
           <p className="text-xl">Cart</p>
           <div className="flex relative">
             <BsFillCartFill className="text-2xl" />
@@ -30,7 +30,7 @@ const Nav = () => {
           </div>
         </Link>
 
-        <Link className="flex align-middle gap-1">
+        <Link className="flex align-middle gap-1" to='/login'>
           <p className="text-xl">Login</p>
           <BsFillPersonPlusFill className="text-2xl" />
         </Link>

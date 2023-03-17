@@ -31,3 +31,11 @@ code {
 .section-head-underline{
   @apply bg-stone-500 w-20 h-1 mb-10
 }
+
+.active-view{
+ @apply bg-black p-1 text-xl text-white rounded cursor-pointer
+}
+
+.inactive-view{
+  @apply border-[1px]  border-black p-[0.5px] text-xl rounded text-black cursor-pointer
+}

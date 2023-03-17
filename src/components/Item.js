@@ -3,9 +3,9 @@ import dummy from '../assets/dummy.jpg'
 
 const Item = () => {
   return (
-    <div className='md:w-1/4 mb-2'>
+    <div className='mb-2 '>
         <img src={dummy} alt='product' className='mb-2 rounded'/>
-        <div className='flex justify-between'>
+        <div className='flex justify-between text-sm'>
             <p>Entertainment Center</p>
             <p className='text-stone-500'>$599.99</p>
         </div>

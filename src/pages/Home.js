@@ -2,6 +2,7 @@ import React from "react";
 import { Item, Footer } from "../components";
 import { GiCompass, GiDiamondHard, GiScrollUnfurled } from "react-icons/gi";
 import hero from "../assets/hero.jpg";
+import { Link } from "react-router-dom";
 
 const data = [1, 2, 3];
 const valueData = [
@@ -51,12 +52,14 @@ const Home = () => {
           Featured Products
         </h2>
         <div className="section-head-underline mx-auto"></div>
-        <div className="md:flex md:justify-between mb-10">
+        <div className="md:flex md:justify-between mb-10 gap-10">
           {data.map((el) => (
             <Item key={el} />
           ))}
         </div>
-        <button className="btn ">ALL PRODUCTS</button>
+        <button className="btn ">
+            <Link to='/products'>ALL PRODUCTS</Link>
+            </button>
       </section>
       {/* Mission and Vision */}
       <section className="bg-stone-300 px-10 md:px-40 py-20 md:h-96 mb-20 md:mb-60">
