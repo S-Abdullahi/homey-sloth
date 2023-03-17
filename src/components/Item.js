@@ -1,13 +1,14 @@
 import React from 'react'
 import dummy from '../assets/dummy.jpg'
+import { useProductContext } from '../context/Products_Context'
 
-const Item = () => {
+const Item = ({id, name, price, image}) => {
   return (
     <div className='mb-2 '>
-        <img src={dummy} alt='product' className='mb-2 rounded'/>
+        <img src={image} alt='product' className='mb-2 rounded h-40 w-full object-cover'/>
         <div className='flex justify-between text-sm'>
-            <p>Entertainment Center</p>
-            <p className='text-stone-500'>$599.99</p>
+            <p>{name}</p>
+            <p className='text-stone-500'>{price}</p>
         </div>
     </div>
   )
