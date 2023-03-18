@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
 
 const Loading = () => {
   return (
-    <div>Loading</div>
-  )
-}
+    <div className="lds-spinner mt-40">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;

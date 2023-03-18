@@ -2,7 +2,7 @@ import React from "react";
 
 const Filters = () => {
   return (
-    <div className="col-span-2 h-screen p-2 text-sm text-left text-gray-500">
+    <div className="col-span-2 md:h-screen p-2 text-sm text-left text-gray-500 ">
       <input type="text" placeholder="Search" className="w-full rounded p-1 border" />
       <div className="flex flex-col items-left mt-5">
         <h4 className="font-bold">Category</h4>

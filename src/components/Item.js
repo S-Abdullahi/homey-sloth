@@ -8,7 +8,7 @@ const Item = ({id, name, price, image}) => {
         <img src={image} alt='product' className='mb-2 rounded h-40 w-full object-cover'/>
         <div className='flex justify-between text-sm'>
             <p>{name}</p>
-            <p className='text-stone-500'>{price}</p>
+            <p className='text-stone-500'>$ {price}</p>
         </div>
     </div>
   )
