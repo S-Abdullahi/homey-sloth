@@ -3,6 +3,7 @@ import { Item, Footer } from "../components";
 import { GiCompass, GiDiamondHard, GiScrollUnfurled } from "react-icons/gi";
 import hero from "../assets/hero.jpg";
 import { Link } from "react-router-dom";
+import { useProductContext } from "../context/Products_Context";
 
 const data = [1, 2, 3];
 const valueData = [
@@ -27,6 +28,9 @@ const valueData = [
 ];
 
 const Home = () => {
+  const { productData } = useProductContext();
+  const featuredProduct = productData.slice(0, 3);
+  console.log(featuredProduct.length);
   return (
     <div>
       <section className="px-10 md:px-40 mt-10 md:mt-20 flex gap-4 md:justify-between">
@@ -52,14 +56,16 @@ const Home = () => {
           Featured Products
         </h2>
         <div className="section-head-underline mx-auto"></div>
-        <div className="md:flex md:justify-between mb-10 gap-10">
-          {data.map((el) => (
-            <Item key={el} />
+        <div className="md:grid md:grid-cols-3 mb-10 gap-10">
+          {featuredProduct.map((el) => (
+            <Link to={`/products/${el.id}`}>
+              <Item key={el.id} {...el} />
+            </Link>
           ))}
         </div>
         <button className="btn ">
-            <Link to='/products'>ALL PRODUCTS</Link>
-            </button>
+          <Link to="/products">ALL PRODUCTS</Link>
+        </button>
       </section>
       {/* Mission and Vision */}
       <section className="bg-stone-300 px-10 md:px-40 py-20 md:h-96 mb-20 md:mb-60">
