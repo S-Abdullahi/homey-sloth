@@ -33,7 +33,7 @@ code {
 }
 
 .active-view{
- @apply bg-black p-1 text-xl text-white rounded cursor-pointer
+ @apply bg-black p-[0.5px] text-xl text-white rounded cursor-pointer
 }
 
 .inactive-view{

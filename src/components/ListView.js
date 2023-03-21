@@ -3,7 +3,7 @@ import Sort from './Sort'
 
 const ListView = () => {
   return (
-    <div>
+    <div className='col-span-10 md:pr-40 md:h-screen overflow-scroll scrollbar-hide'>
         <Sort/>
         <p>List View</p>
     </div>
