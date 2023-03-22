@@ -8,6 +8,7 @@ import ListView from "./ListView";
 import GridView from "./GridView";
 import Filters from "./Filters";
 import Sort from "./Sort";
+import ListViewItem from "./ListViewItem";
 
 export {
   Item,
@@ -19,5 +20,6 @@ export {
   ListView,
   GridView,
   Filters,
-  Sort
+  Sort,
+  ListViewItem
 };
