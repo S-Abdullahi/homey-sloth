@@ -1,21 +1,25 @@
-import React from 'react'
-import Sort from './Sort'
-import ListViewItem from './ListViewItem'
-import { useProductContext } from '../context/Products_Context'
+import React from "react";
+import Sort from "./Sort";
+import ListViewItem from "./ListViewItem";
+import Loading from "./Loading";
+import { useProductContext } from "../context/Products_Context";
 
 const ListView = () => {
-  const {productData} = useProductContext()
-  console.log(productData)
+  const { productData, state } = useProductContext();
+  const { products, isLoading } = state;
+  console.log(productData);
   return (
-    <div className='col-span-10 md:pr-20 md:h-screen overflow-scroll scrollbar-hide'>
-        <Sort/>
+    <div className="col-span-10 md:pr-20 md:h-screen overflow-scroll scrollbar-hide">
+      <Sort />
+      {isLoading ? <Loading/> : (
         <div>
-            {productData.map(product =>{
-              return <ListViewItem key={product.id} {...product}/>
-            })}
+          {products.map((product) => {
+            return <ListViewItem key={product.id} {...product} />;
+          })}
         </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ListView
+export default ListView;

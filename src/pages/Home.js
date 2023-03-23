@@ -28,8 +28,9 @@ const valueData = [
 ];
 
 const Home = () => {
-  const { productData } = useProductContext();
-  const featuredProduct = productData.slice(0, 3);
+  const { productData, state } = useProductContext();
+  const {products} = state
+  const featuredProduct = products.slice(0, 3);
   console.log(featuredProduct.length);
   return (
     <div>

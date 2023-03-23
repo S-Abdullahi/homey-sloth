@@ -6,7 +6,8 @@ import { useProductContext } from "../context/Products_Context";
 import { Link } from "react-router-dom";
 
 const GridView = () => {
-  const { productData, isLoading, setSingleProductID } = useProductContext();
+  const { productData, setSingleProductID, state } = useProductContext();
+  const {products, isLoading} = state
   return (
     <div className="col-span-10 md:pr-40 md:h-screen overflow-scroll scrollbar-hide">
       <Sort />
@@ -15,7 +16,7 @@ const GridView = () => {
         <Loading />
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
-          {productData.map((el) => (
+          {products.map((el) => (
             <Link to={`/products/${el.id}`}>
               <Item key={el.id} {...el} />
             </Link>

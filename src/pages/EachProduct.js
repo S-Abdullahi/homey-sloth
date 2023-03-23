@@ -6,9 +6,11 @@ import axios from "axios";
 
 const EachProduct = () => {
   const { id } = useParams();
-  const { productData } = useProductContext();
+  const { state, increaseProductCount } = useProductContext();
   const [singleProduct, setSingleProduct] = useState([]);
   const [loading, setLoading] = useState(true);
+  const singleProductAmount = state.productAmount.find(product => product.id === id)
+  console.log(singleProductAmount)
 
   const getSingleProduct = async () => {
     try {
@@ -109,8 +111,8 @@ const EachProduct = () => {
           </div>
           <div className="flex  gap-6 mt-2">
             <button className="text-2xl">-</button>
-            <p className="text-2xl font-bold">1</p>
-            <button className="text-2xl">+</button>
+            <p className="text-2xl font-bold">{singleProductAmount.amount}</p>
+            <button className="text-2xl" onClick={()=> increaseProductCount(id)}>+</button>
           </div>
           <button className="btn mt-5">ADD TO CART</button>
         </div>
