@@ -60,9 +60,7 @@ export const ProductProvider = ({ children }) => {
         "https://course-api.com/react-store-products"
       );
       dispatch({type: DISPLAY_PRODUCTS, payload: res.data })
-      // setProductData(res.data);
-      // console.log(res.data)
-      // setIsLoading(false);
+      console.log(res.data)
     } catch (error) {
       console.log(error);
     }

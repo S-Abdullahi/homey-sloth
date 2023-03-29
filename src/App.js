@@ -9,7 +9,8 @@ import {
   Products,
   SharedLayout,
 } from "./pages";
-import SideBar from "./components/SideBar";
+// import SideBar from "./components/SideBar";
+import SideBar from "./modal/SideBar";
 import { useProductContext } from "./context/Products_Context";
 
 const App = () => {

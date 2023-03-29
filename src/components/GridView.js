@@ -17,8 +17,8 @@ const GridView = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {products.map((el) => (
-            <Link to={`/products/${el.id}`}>
-              <Item key={el.id} {...el} />
+            <Link to={`/products/${el.id}`} key={el.id}>
+              <Item {...el} />
             </Link>
           ))}
         </div>
