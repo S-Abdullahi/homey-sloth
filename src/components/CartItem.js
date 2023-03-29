@@ -3,9 +3,9 @@ import { AiFillDelete } from "react-icons/ai";
 
 const CartItem = () => {
   return (
-    <div className="grid grid-cols-5 mx-40 my-2 items-center">
+    <div className="grid grid-cols-5 mx-10 md:mx-40 my-5 items-center">
       <div className="flex gap-3 items-center">
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <img
             src="https://images2.imgbox.com/38/85/iuYyO9RP_o.jpeg"
             alt="dummy"
@@ -28,7 +28,7 @@ const CartItem = () => {
         <button>+</button>
       </div>
       <p className="text-gray-500 text-base">$92.97</p>
-      <AiFillDelete className="text-red-600" />
+      <AiFillDelete className="text-red-600 cursor-pointer" />
     </div>
   );
 };
