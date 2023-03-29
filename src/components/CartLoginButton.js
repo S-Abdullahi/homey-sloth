@@ -1,10 +1,13 @@
 import React from 'react'
 import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useProductContext } from '../context/Products_Context';
 
 
 
 const CartLoginButton = () => {
+  const {state} = useProductContext()
+  const {cart} = state
   return (
     <div className='flex gap-10'>
          <Link className="hidden md:flex gap-1" to="/cart">
@@ -12,7 +15,7 @@ const CartLoginButton = () => {
           <div className="flex relative">
             <BsFillCartFill className="text-2xl" />
             <div className="rounded-full bg-stone-400 text-white w-6 h-6 flex justify-center align-middle absolute left-4 bottom-4">
-              0
+              {cart.length}
             </div>
           </div>
         </Link>

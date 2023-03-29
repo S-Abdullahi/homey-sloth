@@ -3,7 +3,7 @@ import React from "react";
 const CartTotal = () => {
   return (
 
-    <div className="flex justify-center my-10">
+    <div className="flex justify-center md:justify-end my-10">
         <div className="mx-10 w-1/2 md:w-1/4 md:mx-40 flex flex-col gap-5 mb-10">
       <div className="border rounded p-4">
         <div className="flex justify-between">

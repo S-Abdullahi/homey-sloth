@@ -6,7 +6,10 @@ import {
   INCREASE_PRODUCT,
   DECREASE_PRODUCT,
   DISPLAY_PRODUCTS,
-  LOADING_PRODUCT
+  LOADING_PRODUCT,
+  ADD_TO_CART,
+  CLEAR_CART,
+  DELETE_ITEM
 } from "../actions";
 
 const reducer = (state, action) => {
@@ -42,6 +45,17 @@ const reducer = (state, action) => {
 
     console.log(newArray)
     return {...state, productAmount: newArray}
+  }
+  if(action.type === ADD_TO_CART){
+    const itemToCart = state.products.find(product => product.id === action.payload)
+    return {...state, cart: [...state.cart, itemToCart]}
+  }
+  if(action.type === CLEAR_CART){
+    return {...state, cart: []}
+  }
+  if(action.type === DELETE_ITEM){
+    const newArray = state.cart.filter(item => item.id !== action.payload)
+    return {...state, cart: newArray}
   }
   
 };

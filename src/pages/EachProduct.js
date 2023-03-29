@@ -6,11 +6,10 @@ import axios from "axios";
 
 const EachProduct = () => {
   const { id } = useParams();
-  const { state, increaseProductCount } = useProductContext();
+  const { state, increaseProductCount, addToCart } = useProductContext();
   const [singleProduct, setSingleProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const singleProductAmount = state.productAmount.find(product => product.id === id)
-  console.log(singleProductAmount)
 
   const getSingleProduct = async () => {
     try {
@@ -114,7 +113,12 @@ const EachProduct = () => {
             <p className="text-2xl font-bold">{singleProductAmount.amount}</p>
             <button className="text-2xl" onClick={()=> increaseProductCount(id)}>+</button>
           </div>
-          <button className="btn mt-5">ADD TO CART</button>
+          <button className="btn mt-5" onClick={()=>{
+            addToCart(id)
+            console.log(state.cart)
+          }}>
+            <Link to='/cart'>ADD TO CART</Link>
+          </button>
         </div>
       </div>
     </div>

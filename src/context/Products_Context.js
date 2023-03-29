@@ -9,7 +9,10 @@ import {
   INCREASE_PRODUCT,
   DECREASE_PRODUCT,
   DISPLAY_PRODUCTS,
-  LOADING_PRODUCT
+  LOADING_PRODUCT,
+  ADD_TO_CART,
+  CLEAR_CART,
+  DELETE_ITEM
 } from "../actions";
 
 const initialState = {
@@ -19,7 +22,8 @@ const initialState = {
   listView: false,
   isLoading: true,
   products: [],
-  productAmount: []
+  productAmount: [],
+  cart: []
 };
 
 const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
@@ -51,6 +55,15 @@ export const ProductProvider = ({ children }) => {
   function increaseProductCount(id){
     dispatch({type: INCREASE_PRODUCT, payload:id})
   }
+  function addToCart(id){
+    dispatch({type: ADD_TO_CART, payload:id})
+  }
+  function clearCart(){
+    dispatch({type: CLEAR_CART})
+  }
+  function deleteCartItem(id){
+    dispatch({type: DELETE_ITEM, payload:id})
+  }
 
   const getData = async () => {
     try {
@@ -60,7 +73,6 @@ export const ProductProvider = ({ children }) => {
         "https://course-api.com/react-store-products"
       );
       dispatch({type: DISPLAY_PRODUCTS, payload: res.data })
-      console.log(res.data)
     } catch (error) {
       console.log(error);
     }
@@ -82,6 +94,9 @@ export const ProductProvider = ({ children }) => {
         displayGridView,
         displayListView,
         increaseProductCount,
+        addToCart,
+        clearCart,
+        deleteCartItem,
         state,
       }}
     >
