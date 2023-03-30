@@ -1,6 +1,9 @@
 import React from "react";
+import { useProductContext } from "../context/Products_Context";
 
 const CartTotal = () => {
+    const {state, subTotal, shippingFee, orderTotal} = useProductContext()
+    const {cart} = state
   return (
 
     <div className="flex justify-center md:justify-end my-10">
@@ -12,14 +15,14 @@ const CartTotal = () => {
             <p className="text-base tracking-wide">Shipping Fee:</p>
           </div>
           <div className="text-left">
-            <p className="text-base font-bold">$125.99</p>
-            <p className="text-base">$5.34</p>
+            <p className="text-base font-bold">${subTotal}</p>
+            <p className="text-base">${shippingFee}</p>
           </div>
         </div>
         <hr/>
         <div className="flex justify-between mt-5">
             <p className="font-bold">Order Total :</p>
-            <p className="font-bold">$150.33</p>
+            <p className="font-bold">${orderTotal}</p>
         </div>
       </div>
 

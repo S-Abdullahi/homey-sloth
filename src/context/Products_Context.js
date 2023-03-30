@@ -65,6 +65,12 @@ export const ProductProvider = ({ children }) => {
     dispatch({type: DELETE_ITEM, payload:id})
   }
 
+  // calculating subTotal
+  const shippingFee = 5.25
+  const subTotal = state.cart.map(item => item.price).reduce((acc, curr) => acc + curr, 0)
+  const orderTotal = subTotal + shippingFee
+
+
   const getData = async () => {
     try {
       // setIsLoading(true);
@@ -97,6 +103,9 @@ export const ProductProvider = ({ children }) => {
         addToCart,
         clearCart,
         deleteCartItem,
+        subTotal,
+        shippingFee,
+        orderTotal,
         state,
       }}
     >
