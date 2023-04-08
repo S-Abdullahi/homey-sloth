@@ -9,34 +9,41 @@ import {SingleProductDesc, SingleProductImages} from "../components";
 
 const EachProduct = () => {
   const { id } = useParams();
-  const { state, increaseProductCount, addToCart} =
+  const { state, increaseProductCount, addToCart, getSingleData} =
     useProductContext();
+    const {singleData, isLoadingSingle} = state
   const [singleProduct, setSingleProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const singleProductAmount = state.productAmount.find(
     (product) => product.id === id
   );
 
-  const getSingleProduct = async () => {
-    try {
-      setLoading(true);
-      const res = await axios.get(
-        `https://course-api.com/react-store-single-product?id=${id}`
-      );
-      setSingleProduct(res.data);
-      //   console.log(res.data)
-      setLoading(false);
-    } catch (err) {
-      <Error />;
-      console.log(err);
-    }
-  };
+  useEffect(()=>{
+    getSingleData(id)
+  },[id])
 
-  useEffect(() => {
-    getSingleProduct();
-  }, [id]);
+  // console.log(singleData)
 
-  if (loading) {
+  // const getSingleProduct = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const res = await axios.get(
+  //       `https://course-api.com/react-store-single-product?id=${id}`
+  //     );
+  //     setSingleProduct(res.data);
+  //     //   console.log(res.data)
+  //     setLoading(false);
+  //   } catch (err) {
+  //     <Error />;
+  //     console.log(err);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getSingleProduct();
+  // }, [id]);
+
+  if (isLoadingSingle) {
     return (
       <div className="flex justify-center items-center">
         <Loading />
@@ -48,7 +55,7 @@ const EachProduct = () => {
     images,
     name,
     stock,
-  } = singleProduct;
+  } = singleData;
 
   let inStock;
   if (stock > 1) {
@@ -66,7 +73,7 @@ const EachProduct = () => {
       <div className="flex flex-col md:flex-row justify-between gap-10">
         <SingleProductImages images={images} />
         <div>
-          <SingleProductDesc {...singleProduct} inStock={inStock}/>
+          <SingleProductDesc {...singleData} inStock={inStock}/>
           <hr className="mt-2" />
           <div className="flex gap-10 mt-5">
             <p className="font-bold">Colors:</p>

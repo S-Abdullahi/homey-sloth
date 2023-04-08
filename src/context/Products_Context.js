@@ -14,7 +14,9 @@ import {
   CLEAR_CART,
   DELETE_ITEM,
   GET_SINGLE_DATA,
-  ERROR_LOADING
+  ERROR_LOADING,
+  LOADING_SINGLE_PRODUCT,
+  ERROR_SINGLE_PRODUCT,
 } from "../actions";
 
 const initialState = {
@@ -23,6 +25,8 @@ const initialState = {
   gridView: true,
   listView: false,
   isLoading: true,
+  isLoadingSingle: true,
+  isErrorSingle: false,
   isError: false,
   products: [],
   productAmount: [],
@@ -30,12 +34,10 @@ const initialState = {
   sigleData: [],
 };
 
-const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
 
 const ProductContext = React.createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [singleProductID, setSingleProductID] = useState("");
 
@@ -68,13 +70,13 @@ export const ProductProvider = ({ children }) => {
   function deleteCartItem(id) {
     dispatch({ type: DELETE_ITEM, payload: id });
   }
-  const getSingleData = async (url) => {
+  const getSingleData = async (id) => {
     try {
-      dispatch({ type: LOADING_PRODUCT });
-      const singleData = await axios.get(url);
+      dispatch({ type: LOADING_SINGLE_PRODUCT });
+      const singleData = await axios.get(`https://course-api.com/react-store-single-product?id=${id}`);
       dispatch({ type: GET_SINGLE_DATA, payload: singleData.data });
     } catch(err) {
-      dispatch({type: ERROR_LOADING})
+      dispatch({type: ERROR_SINGLE_PRODUCT})
       // console.log(err)
     }
   }
@@ -108,7 +110,6 @@ export const ProductProvider = ({ children }) => {
   return (
     <ProductContext.Provider
       value={{
-        productData,
         isLoading,
         setIsLoading,
         singleProductID,

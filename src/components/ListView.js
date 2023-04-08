@@ -5,9 +5,8 @@ import Loading from "./Loading";
 import { useProductContext } from "../context/Products_Context";
 
 const ListView = () => {
-  const { productData, state } = useProductContext();
+  const {state } = useProductContext();
   const { products, isLoading } = state;
-  console.log(productData);
   return (
     <div className="col-span-10 md:pr-20 md:h-screen overflow-scroll scrollbar-hide">
       <Sort />

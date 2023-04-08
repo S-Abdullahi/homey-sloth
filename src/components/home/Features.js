@@ -15,7 +15,7 @@ const FeaturedProduct = () => {
     </h2>
     <div className="section-head-underline mx-auto"></div>
     <div className="md:grid md:grid-cols-3 mb-10 gap-10">
-      {isLoading && <Loading/>}
+      {isLoading && <div className="col-span-3 text-center"><Loading/></div> }
       {isError ? <div className="text-xl font-bold col-span-3"><p className="text-center">Something went wrong...</p></div> : featuredProduct.map((el) => (
         <Link to={`/products/${el.id}`}>
           <Item key={el.id} {...el} />

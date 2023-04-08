@@ -6,7 +6,7 @@ import { useProductContext } from "../context/Products_Context";
 import { Link } from "react-router-dom";
 
 const GridView = () => {
-  const { productData, setSingleProductID, state } = useProductContext();
+  const {setSingleProductID, state } = useProductContext();
   const {products, isLoading} = state
   return (
     <div className="col-span-10 md:pr-40 md:h-screen overflow-scroll scrollbar-hide">

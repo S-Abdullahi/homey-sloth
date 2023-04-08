@@ -1,6 +1,5 @@
 import React from "react";
 import { BreadCrumb, Filters, GridView, ListView } from "../components";
-import dummy from "../assets/dummy.jpg";
 import { useProductContext } from "../context/Products_Context";
 
 const Products = () => {

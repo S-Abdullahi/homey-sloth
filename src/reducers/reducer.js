@@ -11,7 +11,9 @@ import {
   CLEAR_CART,
   DELETE_ITEM,
   GET_SINGLE_DATA,
-  ERROR_LOADING
+  ERROR_LOADING,
+  LOADING_SINGLE_PRODUCT,
+  ERROR_SINGLE_PRODUCT
 } from "../actions";
 
 const reducer = (state, action) => {
@@ -61,7 +63,13 @@ const reducer = (state, action) => {
     return {...state, cart: newArray}
   }
   if(action.type === GET_SINGLE_DATA){
-    return {...state, singleData: action.payload}
+    return {...state, singleData: action.payload, isLoadingSingle: false}
+  }
+  if(action.type === LOADING_SINGLE_PRODUCT){
+    return {...state, isLoadingSingle: true}
+  }
+  if(action.type === ERROR_SINGLE_PRODUCT){
+    return {...state, isLoadingSingle: false, isErrorSingle: true}
   }
 };
 
