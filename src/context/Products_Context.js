@@ -14,6 +14,7 @@ import {
   CLEAR_CART,
   DELETE_ITEM,
   GET_SINGLE_DATA,
+  ERROR_LOADING
 } from "../actions";
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   gridView: true,
   listView: false,
   isLoading: true,
+  isError: false,
   products: [],
   productAmount: [],
   cart: [],
@@ -72,7 +74,8 @@ export const ProductProvider = ({ children }) => {
       const singleData = await axios.get(url);
       dispatch({ type: GET_SINGLE_DATA, payload: singleData.data });
     } catch(err) {
-      console.log(err)
+      dispatch({type: ERROR_LOADING})
+      // console.log(err)
     }
   }
 
@@ -92,7 +95,8 @@ export const ProductProvider = ({ children }) => {
       );
       dispatch({ type: DISPLAY_PRODUCTS, payload: res.data });
     } catch (error) {
-      console.log(error);
+      dispatch({type: ERROR_LOADING})
+      // console.log(error);
     }
   };
 

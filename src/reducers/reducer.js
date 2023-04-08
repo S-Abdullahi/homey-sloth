@@ -10,7 +10,8 @@ import {
   ADD_TO_CART,
   CLEAR_CART,
   DELETE_ITEM,
-  GET_SINGLE_DATA
+  GET_SINGLE_DATA,
+  ERROR_LOADING
 } from "../actions";
 
 const reducer = (state, action) => {
@@ -30,10 +31,13 @@ const reducer = (state, action) => {
     const productAmountArray = action.payload.map(product => {
         return {id: product.id, amount: 1}
     })
-    return { ...state, products: action.payload, isLoading: false, productAmount: productAmountArray };
+    return { ...state, products: action.payload, isLoading: false, productAmount: productAmountArray, isError: false };
   }
   if(action.type === LOADING_PRODUCT){
     return {...state, isLoading: true}
+  } 
+  if(action.type === ERROR_LOADING){
+    return {...state, isError: true, isLoading: false}
   }
   if(action.type === INCREASE_PRODUCT){
   
@@ -43,8 +47,6 @@ const reducer = (state, action) => {
         }
         return item
     })
-
-    console.log(newArray)
     return {...state, productAmount: newArray}
   }
   if(action.type === ADD_TO_CART){

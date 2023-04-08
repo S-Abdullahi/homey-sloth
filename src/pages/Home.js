@@ -1,8 +1,5 @@
 import React from "react";
-import { Item} from "../components";
-import { Link } from "react-router-dom";
 import { useProductContext } from "../context/Products_Context";
-import { valueData } from "../utils/constants";
 import { FeaturedProduct, Hero, JoinNewsletter, MissionVision } from "../components/home";
 
 const Home = () => {
