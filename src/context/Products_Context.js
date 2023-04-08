@@ -12,7 +12,8 @@ import {
   LOADING_PRODUCT,
   ADD_TO_CART,
   CLEAR_CART,
-  DELETE_ITEM
+  DELETE_ITEM,
+  GET_SINGLE_DATA,
 } from "../actions";
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
   isLoading: true,
   products: [],
   productAmount: [],
-  cart: []
+  cart: [],
+  sigleData: [],
 };
 
 const GET_PRODUCT_DATA = "GET_PRODUCT_DATA";
@@ -52,33 +54,43 @@ export const ProductProvider = ({ children }) => {
   function displayListView() {
     dispatch({ type: LIST_VIEW });
   }
-  function increaseProductCount(id){
-    dispatch({type: INCREASE_PRODUCT, payload:id})
+  function increaseProductCount(id) {
+    dispatch({ type: INCREASE_PRODUCT, payload: id });
   }
-  function addToCart(id){
-    dispatch({type: ADD_TO_CART, payload:id})
+  function addToCart(id) {
+    dispatch({ type: ADD_TO_CART, payload: id });
   }
-  function clearCart(){
-    dispatch({type: CLEAR_CART})
+  function clearCart() {
+    dispatch({ type: CLEAR_CART });
   }
-  function deleteCartItem(id){
-    dispatch({type: DELETE_ITEM, payload:id})
+  function deleteCartItem(id) {
+    dispatch({ type: DELETE_ITEM, payload: id });
+  }
+  const getSingleData = async (url) => {
+    try {
+      dispatch({ type: LOADING_PRODUCT });
+      const singleData = await axios.get(url);
+      dispatch({ type: GET_SINGLE_DATA, payload: singleData.data });
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   // calculating subTotal
-  const shippingFee = 5.25
-  const subTotal = state.cart.map(item => item.price).reduce((acc, curr) => acc + curr, 0)
-  const orderTotal = subTotal + shippingFee
-
+  const shippingFee = 5.25;
+  const subTotal = state.cart
+    .map((item) => item.price)
+    .reduce((acc, curr) => acc + curr, 0);
+  const orderTotal = subTotal + shippingFee;
 
   const getData = async () => {
     try {
       // setIsLoading(true);
-      dispatch({type: LOADING_PRODUCT})
+      dispatch({ type: LOADING_PRODUCT });
       const res = await axios.get(
         "https://course-api.com/react-store-products"
       );
-      dispatch({type: DISPLAY_PRODUCTS, payload: res.data })
+      dispatch({ type: DISPLAY_PRODUCTS, payload: res.data });
     } catch (error) {
       console.log(error);
     }
@@ -87,6 +99,8 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     getData();
   }, []);
+
+  
   return (
     <ProductContext.Provider
       value={{
@@ -107,6 +121,7 @@ export const ProductProvider = ({ children }) => {
         shippingFee,
         orderTotal,
         state,
+        getSingleData
       }}
     >
       {children}

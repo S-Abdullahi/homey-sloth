@@ -8,6 +8,7 @@ import {
   Login,
   Products,
   SharedLayout,
+  Error
 } from "./pages";
 // import SideBar from "./components/SideBar";
 import SideBar from "./modal/SideBar";
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/products/:id" element={<EachProduct />}></Route>
             <Route path="cart" element={<Cart />}></Route>
           </Route>
+          <Route path="*" element={<Error/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

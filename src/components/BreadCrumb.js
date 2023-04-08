@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const BreadCrumb = ({title}) => {
+const BreadCrumb = ({title, product}) => {
   return (
-    <div className='bg-stone-300 p-8 text-left px-40 font-bold '>
-        <p className='text-stone-500'>Home / <span className='text-stone-700'>{title}</span></p>
+    <div className='bg-stone-300 p-8 text-left text-xl px-40 font-bold '>
+        <p className='text-stone-500'><Link to='/'>Home </Link> / {product ? <span><Link to='/products'>{title}</Link>/ <span className='text-stone-400'>{product}</span></span> : <span className='text-stone-400'>{title}</span>}</p>
     </div>
   )
 }

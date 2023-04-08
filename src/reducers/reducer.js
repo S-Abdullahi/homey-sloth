@@ -9,7 +9,8 @@ import {
   LOADING_PRODUCT,
   ADD_TO_CART,
   CLEAR_CART,
-  DELETE_ITEM
+  DELETE_ITEM,
+  GET_SINGLE_DATA
 } from "../actions";
 
 const reducer = (state, action) => {
@@ -57,7 +58,9 @@ const reducer = (state, action) => {
     const newArray = state.cart.filter(item => item.id !== action.payload)
     return {...state, cart: newArray}
   }
-  
+  if(action.type === GET_SINGLE_DATA){
+    return {...state, singleData: action.payload}
+  }
 };
 
 export default reducer;

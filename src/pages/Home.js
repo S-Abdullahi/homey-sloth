@@ -1,37 +1,14 @@
 import React from "react";
-import { Item, Footer } from "../components";
-import { GiCompass, GiDiamondHard, GiScrollUnfurled } from "react-icons/gi";
+import { Item} from "../components";
 import hero from "../assets/hero.jpg";
 import { Link } from "react-router-dom";
 import { useProductContext } from "../context/Products_Context";
-
-const data = [1, 2, 3];
-const valueData = [
-  {
-    icon: <GiCompass />,
-    title: "Mission",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
-  },
-  {
-    icon: <GiDiamondHard />,
-    title: "Vision",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
-  },
-  {
-    icon: <GiScrollUnfurled />,
-    title: "History",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
-  },
-];
+import { valueData } from "../utils/constants";
 
 const Home = () => {
-  const { productData, state } = useProductContext();
+  const {state } = useProductContext();
   const {products} = state
   const featuredProduct = products.slice(0, 3);
-  console.log(featuredProduct.length);
   return (
     <div>
       <section className="px-10 md:px-40 mt-10 md:mt-20 flex gap-4 md:justify-between">

@@ -9,6 +9,8 @@ import GridView from "./GridView";
 import Filters from "./Filters";
 import Sort from "./Sort";
 import ListViewItem from "./ListViewItem";
+import SingleProductDesc from "./SingleProductDesc";
+import SingleProductImages from "./singleProductImages";
 
 export {
   Item,
@@ -21,5 +23,7 @@ export {
   GridView,
   Filters,
   Sort,
-  ListViewItem
+  ListViewItem,
+  SingleProductDesc,
+  SingleProductImages
 };
