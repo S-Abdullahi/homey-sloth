@@ -77,20 +77,18 @@ export const ProductProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_DATA, payload: singleData.data });
     } catch(err) {
       dispatch({type: ERROR_SINGLE_PRODUCT})
-      // console.log(err)
     }
   }
 
   // calculating subTotal
   const shippingFee = 5.25;
   const subTotal = state.cart
-    .map((item) => item.price)
+    .map((item) => item?.price)
     .reduce((acc, curr) => acc + curr, 0);
   const orderTotal = subTotal + shippingFee;
 
   const getData = async () => {
     try {
-      // setIsLoading(true);
       dispatch({ type: LOADING_PRODUCT });
       const res = await axios.get(
         "https://course-api.com/react-store-products"
@@ -98,7 +96,6 @@ export const ProductProvider = ({ children }) => {
       dispatch({ type: DISPLAY_PRODUCTS, payload: res.data });
     } catch (error) {
       dispatch({type: ERROR_LOADING})
-      // console.log(error);
     }
   };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useProductContext } from "../context/Products_Context";
+import Amount from "./Amount";
+import { priceFormat } from "../utils/constants";
 
 const CartItem = ({id, image, name, price, colors}) => {
   const {deleteCartItem} = useProductContext()
@@ -21,14 +23,15 @@ const CartItem = ({id, image, name, price, colors}) => {
             <span className="text-sm text-gray-500">color:</span>
             <div className={`w-3 h-3 rounded bg-[${colors[0]}]`}></div>
           </div>
-          <p className="text-yellow-500 text-base md:hidden">${price.toFixed(2)}</p>
+          <p className="text-yellow-500 text-base md:hidden">{priceFormat(price)}</p>
         </div>
       </div>
-      <p className="text-yellow-500 text-base hidden md:block">${price.toFixed(2)}</p>
+      <p className="text-yellow-500 text-base hidden md:block">{priceFormat(price)}</p>
       <div className="flex justify-center gap-5 col-span-2 md:col-span-1 font-bold">
-        <button>-</button>
+        {/* <button>-</button>
         <span>3</span>
-        <button>+</button>
+        <button>+</button> */}
+        <Amount/>
       </div>
       <p className="text-gray-500 text-base hidden md:block">$92.97</p>
       <div className="flex justify-center">

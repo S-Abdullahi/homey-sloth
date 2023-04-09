@@ -5,6 +5,8 @@ import { BreadCrumb, Loading } from "../components";
 import axios from "axios";
 import Error from "./Error";
 import {SingleProductDesc, SingleProductImages} from "../components";
+import {AiFillCheckCircle} from 'react-icons/ai'
+import AddToCart from "../components/addToCart";
 
 
 const EachProduct = () => {
@@ -22,27 +24,6 @@ const EachProduct = () => {
     getSingleData(id)
   },[id])
 
-  // console.log(singleData)
-
-  // const getSingleProduct = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const res = await axios.get(
-  //       `https://course-api.com/react-store-single-product?id=${id}`
-  //     );
-  //     setSingleProduct(res.data);
-  //     //   console.log(res.data)
-  //     setLoading(false);
-  //   } catch (err) {
-  //     <Error />;
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getSingleProduct();
-  // }, [id]);
-
   if (isLoadingSingle) {
     return (
       <div className="flex justify-center items-center">
@@ -55,7 +36,9 @@ const EachProduct = () => {
     images,
     name,
     stock,
+    colors
   } = singleData;
+  console.log(singleData)
 
   let inStock;
   if (stock > 1) {
@@ -75,28 +58,7 @@ const EachProduct = () => {
         <div>
           <SingleProductDesc {...singleData} inStock={inStock}/>
           <hr className="mt-2" />
-          <div className="flex gap-10 mt-5">
-            <p className="font-bold">Colors:</p>
-            <div>color con</div>
-          </div>
-          <div className="flex  gap-6 mt-2">
-            <button className="text-2xl">-</button>
-            <p className="text-2xl font-bold">{singleProductAmount.amount}</p>
-            <button
-              className="text-2xl"
-              onClick={() => increaseProductCount(id)}
-            >
-              +
-            </button>
-          </div>
-          <button
-            className="btn mt-5"
-            onClick={() => {
-              addToCart(id);
-            }}
-          >
-            <Link to="/cart">ADD TO CART</Link>
-          </button>
+          <AddToCart {...singleData} uniqueid={id}/>
         </div>
       </div>
     </div>

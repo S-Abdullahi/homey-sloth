@@ -1,4 +1,5 @@
 import React from "react";
+import { priceFormat } from "../utils/constants";
 import {
   TiStarFullOutline,
   TiStarHalfOutline,
@@ -35,7 +36,7 @@ const SingleProductDesc = ({
       <h3 className="section-head">{name}</h3>
       <div className="flex">{rating}</div>
       <p className="text-gray-400">({reviews} customer reviews)</p>
-      <h5 className="font-bold text-yellow-700 text-2xl">$ {price}</h5>
+      <h5 className="font-bold text-yellow-700 text-2xl">{priceFormat(price)}</h5>
       <p className="leading-8 mt-5 text-gray-500">{description}</p>
       <div className="flex gap-5 mt-5">
         <div className="font-bold leading-8">
