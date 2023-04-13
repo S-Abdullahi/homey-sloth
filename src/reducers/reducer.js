@@ -13,7 +13,8 @@ import {
   GET_SINGLE_DATA,
   ERROR_LOADING,
   LOADING_SINGLE_PRODUCT,
-  ERROR_SINGLE_PRODUCT
+  ERROR_SINGLE_PRODUCT,
+  SORT_PRODUCTS
 } from "../actions";
 
 const reducer = (state, action) => {

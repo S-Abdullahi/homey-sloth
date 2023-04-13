@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import { useProductContext } from "../context/Products_Context";
 import { Link } from "react-router-dom";
 
-const GridView = () => {
+const GridView = ({allProduct, filteredProduct}) => {
   const {setSingleProductID, state } = useProductContext();
   const {products, isLoading} = state
   return (
