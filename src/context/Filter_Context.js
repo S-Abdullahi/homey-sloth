@@ -11,7 +11,7 @@ import {
 const initialState = {
   all_products: [],
   filteredProducts: [],
-  sort: "",
+  sort: "price-lowest",
 };
 const filterContext = React.createContext();
 
@@ -28,8 +28,7 @@ export const FilterProvider = ({ children }) => {
 
   function sortProduct(e) {
     const value = e.target.value;
-    dispatch({ type: SORT_PRODUCTS, payload: value });
-    console.log(value);
+    dispatch({ type: UPDATE_SORT_PRODUCT, payload: value });
   }
 
   function updateSort() {
@@ -40,7 +39,9 @@ export const FilterProvider = ({ children }) => {
     getFullProducts();
   }, [product_state.products]);
 
-  console.log(state.all_products);
+  useEffect(()=>{
+    dispatch({type: SORT_PRODUCTS})
+  },[product_state.products, state.sort])
 
   return (
     <filterContext.Provider value={{ state, sortProduct }}>

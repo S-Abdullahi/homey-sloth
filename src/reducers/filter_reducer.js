@@ -2,6 +2,7 @@ import {
   GET_FILTER_PRODUCT,
   GET_FULL_PRODUCT,
   SORT_PRODUCTS,
+  UPDATE_SORT_PRODUCT
 } from "../actions";
 
 const filterReducer = (state, action) => {
@@ -9,33 +10,38 @@ const filterReducer = (state, action) => {
     return { ...state, filteredProducts: action.payload };
   }
   if (action.type === GET_FULL_PRODUCT) {
-    return { ...state, all_products: action.payload };
+    return { ...state, all_products: [...action.payload], filteredProducts: [...action.payload] };
+  }
+
+  if(action.type === UPDATE_SORT_PRODUCT){
+    return {...state, sort: action.payload}
   }
   if (action.type === SORT_PRODUCTS) {
-    let newSort;
-    let value = action.payload;
+    const { all_products, sort } = state;
+    let newSort = [...all_products];
+    let value = sort;
     switch (value) {
       case "price-lowest":
-        newSort = state.all_products.sort((a, b) => a.price - b.price);
+        newSort = newSort.sort((a, b) => a.price - b.price);
         break;
       case "price-highest":
-        newSort = state.all_products.sort((a, b) => b.price - a.price);
+        newSort = newSort.sort((a, b) => b.price - a.price);
         break;
       case "name-a-z":
-        newSort = state.all_products.sort((a, b) => {
+        newSort = newSort.sort((a, b) => {
           if (a.name < b.name) return -1;
         });
         break;
       case "name-z-a":
-        newSort = state.all_products.sort((a, b) => {
-          if (a.name > b.name) return 1;
+        newSort = newSort.sort((a, b) => {
+          if (a.name > b.name) return -1;
         });
         break;
       default:
     }
-    console.log(newSort);
-    return { ...state, sort: action.payload, filteredProducts: newSort };
+    return { ...state, filteredProducts: newSort };
   }
+  
 };
 
 export default filterReducer;
