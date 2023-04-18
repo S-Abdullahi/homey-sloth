@@ -2,7 +2,8 @@ import {
   GET_FILTER_PRODUCT,
   GET_FULL_PRODUCT,
   SORT_PRODUCTS,
-  UPDATE_SORT_PRODUCT
+  UPDATE_SORT_PRODUCT,
+  FILTER_PRODUCT
 } from "../actions";
 
 const filterReducer = (state, action) => {
@@ -10,15 +11,17 @@ const filterReducer = (state, action) => {
     return { ...state, filteredProducts: action.payload };
   }
   if (action.type === GET_FULL_PRODUCT) {
-    return { ...state, all_products: [...action.payload], filteredProducts: [...action.payload] };
+    const priceArray = state.all_products.map((p)=>p.price)
+    const maxPrice = Math.max(...priceArray)
+    return { ...state, all_products: [...action.payload], filteredProducts: [...action.payload], filter: {...state.filter, price: maxPrice, max_price: maxPrice} };
   }
 
   if(action.type === UPDATE_SORT_PRODUCT){
     return {...state, sort: action.payload}
   }
   if (action.type === SORT_PRODUCTS) {
-    const { all_products, sort } = state;
-    let newSort = [...all_products];
+    const { sort , filteredProducts} = state;
+    let newSort = [...filteredProducts];
     let value = sort;
     switch (value) {
       case "price-lowest":

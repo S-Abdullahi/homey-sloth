@@ -4,7 +4,7 @@ import ListViewItem from "./ListViewItem";
 import Loading from "./Loading";
 import { useProductContext } from "../context/Products_Context";
 
-const ListView = () => {
+const ListView = ({filteredProducts}) => {
   const {state } = useProductContext();
   const { products, isLoading } = state;
   return (
@@ -12,7 +12,7 @@ const ListView = () => {
       <Sort />
       {isLoading ? <Loading/> : (
         <div>
-          {products.map((product) => {
+          {filteredProducts.map((product) => {
             return <ListViewItem key={product.id} {...product} />;
           })}
         </div>

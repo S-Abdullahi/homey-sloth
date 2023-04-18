@@ -5,13 +5,25 @@ import {
   GET_FULL_PRODUCT,
   GET_FILTER_PRODUCT,
   SORT_PRODUCTS,
-  UPDATE_SORT_PRODUCT
+  UPDATE_SORT_PRODUCT,
+  FILTER_PRODUCT,
+  UPDATE_FILTER
 } from "../actions";
 
 const initialState = {
   all_products: [],
   filteredProducts: [],
   sort: "price-lowest",
+  filter: {
+    text: '',
+    company: '',
+    category: '',
+    color: '',
+    min_price: 0,
+    max_price: 0,
+    price: 0,
+    shipping: false
+  }
 };
 const filterContext = React.createContext();
 
@@ -31,12 +43,14 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_SORT_PRODUCT, payload: value });
   }
 
-  function updateSort() {
-    dispatch({type: UPDATE_SORT_PRODUCT});
+  function updateFilter(e){
+    const name = e.target.name
+    const value = e.target.value
+    dispatch({type: UPDATE_FILTER, payload: {name, value}})
   }
-
   useEffect(() => {
     getFullProducts();
+    console.log(state)
   }, [product_state.products]);
 
   useEffect(()=>{

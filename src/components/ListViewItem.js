@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { priceFormat } from '../utils/constants'
 
 const ListViewItem = ({id,name, image, description, company, price}  ) => {
   return (
@@ -9,7 +10,7 @@ const ListViewItem = ({id,name, image, description, company, price}  ) => {
         {/* </div> */}
         <div className='text-left flex flex-col items-start justify-center gap-2'>
             <h2 className='text-xl font-bold'>{name}</h2>
-            <p className='text-sm font-bold text-yellow-500'>${price.toFixed(2)}</p>
+            <p className='text-sm font-bold text-yellow-500'>{priceFormat(price)}</p>
             <p className='text-sm text-gray-500'>{description.slice(0,150)}...</p>
             <button className='text-xs bg-stone-400 rounded p-2'>
                 <Link to={`/products/${id}`}>DETAILS</Link>
