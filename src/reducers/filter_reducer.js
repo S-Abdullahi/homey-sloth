@@ -3,7 +3,8 @@ import {
   GET_FULL_PRODUCT,
   SORT_PRODUCTS,
   UPDATE_SORT_PRODUCT,
-  FILTER_PRODUCT
+  FILTER_PRODUCT,
+  UPDATE_FILTER
 } from "../actions";
 
 const filterReducer = (state, action) => {
@@ -44,7 +45,10 @@ const filterReducer = (state, action) => {
     }
     return { ...state, filteredProducts: newSort };
   }
-  
+  if(action.type === 'UPDATE_FILTER'){
+    const {name, value} = action.payload
+    return {...state, filter: {...state.filter, [name]: value }}
+  }
 };
 
 export default filterReducer;

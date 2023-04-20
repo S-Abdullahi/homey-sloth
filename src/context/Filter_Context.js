@@ -16,15 +16,17 @@ const initialState = {
   sort: "price-lowest",
   filter: {
     text: '',
-    company: '',
-    category: '',
-    color: '',
+    company: 'all',
+    category: 'all',
+    color: 'all',
     min_price: 0,
     max_price: 0,
     price: 0,
     shipping: false
   }
 };
+
+
 const filterContext = React.createContext();
 
 export const FilterProvider = ({ children }) => {
@@ -45,7 +47,16 @@ export const FilterProvider = ({ children }) => {
 
   function updateFilter(e){
     const name = e.target.name
-    const value = e.target.value
+    let value = e.target.value
+    if(name === 'category'){
+        value = e.target.textContent
+    }
+    if(name === 'color'){
+        value = e.target.dataset.color
+    }
+    if(name === 'price'){
+        value = Number(value)
+    }
     dispatch({type: UPDATE_FILTER, payload: {name, value}})
   }
   useEffect(() => {
@@ -58,7 +69,7 @@ export const FilterProvider = ({ children }) => {
   },[product_state.products, state.sort])
 
   return (
-    <filterContext.Provider value={{ state, sortProduct }}>
+    <filterContext.Provider value={{ ...state, sortProduct, updateFilter }}>
       {children}
     </filterContext.Provider>
   );

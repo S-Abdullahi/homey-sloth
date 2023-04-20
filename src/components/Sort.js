@@ -7,7 +7,7 @@ import { useFilterContext } from "../context/Filter_Context";
 const Sort = () => {
   const { displayGridView, displayListView, state } = useProductContext();
 
-  const { state: filterState, sortProduct } = useFilterContext();
+  const { sort, sortProduct } = useFilterContext();
 
   const { gridView, listView } = state;
   return (
@@ -24,7 +24,7 @@ const Sort = () => {
       <hr className="grow" />
       <p>Sort By</p>
       <select
-        value={filterState.sort}
+        value={sort}
         onChange={sortProduct}
         className="cursor-pointer"
       >

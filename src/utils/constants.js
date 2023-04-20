@@ -7,6 +7,15 @@ export const priceFormat = (num) => {
     return newNumber
 }
 
+export const getUniqueValues = (data, type) =>{
+    let valueArray = data.map((item)=>item[type])
+    if(type === 'colors'){
+      valueArray = valueArray.flat()
+    }
+    console.log(valueArray)
+    return ['all', ...new Set(valueArray)]
+}
+
 export const valueData = [
     {
       icon: <GiCompass />,

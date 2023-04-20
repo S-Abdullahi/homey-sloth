@@ -6,8 +6,8 @@ import { useFilterContext } from "../context/Filter_Context";
 const Products = () => {
   const { state } = useProductContext();
   const { gridView, listView } = state;
-  const { state: filterState } = useFilterContext();
-  const { all_products, filteredProducts } = filterState;
+  const { all_products, filteredProducts } = useFilterContext();
+  // const { all_products, filteredProducts } = filterState;
   return (
     <div className="text-2xl text-center">
       <BreadCrumb title="Product" />

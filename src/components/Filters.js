@@ -1,45 +1,110 @@
 import React from "react";
+import { useFilterContext } from "../context/Filter_Context";
+import { getUniqueValues, priceFormat } from "../utils/constants";
+import {FaCheck} from 'react-icons/fa'
 
 const Filters = () => {
+  const {
+    updateFilter,
+    all_products,
+    filter: {
+      text,
+      company,
+      category,
+      color,
+      min_price,
+      max_price,
+      price,
+      shipping,
+    },
+  } = useFilterContext();
+
+  // getting unique filter values
+  const categories = getUniqueValues(all_products, "category");
+  const companies = getUniqueValues(all_products, "company");
+  const colors = getUniqueValues(all_products, "colors");
   return (
     <div className="col-span-2 md:h-screen p-2 text-sm text-left text-gray-500 ">
-      <input type="text" placeholder="Search" className="w-full rounded p-1 border" />
-      <div className="flex flex-col items-left mt-5">
-        <h4 className="font-bold">Category</h4>
-        <button className="bg-blue-300 w-0">All</button>
-        <button className="w-0">Office</button>
-        <button className="w-0">Living Room</button>
-        <button className="w-0">Kitchen</button>
-        <button className="w-0">Bedroom</button>
-        <button className="w-0">Dining</button>
-        <button className="w-0">Kids</button>
-      </div>
-      <div className="my-5">
-        <h4 className="font-bold mb-2">Company</h4>
-        <select className="rounded p-1 cursor-pointer border">
-            <option>all</option>
-            <option>Marcos</option>
-            <option>Liddy</option>
-            <option>Ikia</option>
-            <option>Caresa</option>
-        </select>
-      </div>
-      <div className="my-5">
-        <h4 className="font-bold mb-2">Colors</h4>
-        <div className="flex gap-1 items-center">
-            <button>All</button>
-            <button className="w-4 h-4 rounded-full bg-green-400"></button>
-            <button className="w-4 h-4 rounded-full bg-blue-400"></button>
-            <button className="w-4 h-4 rounded-full bg-stone-400"></button>
-            <button className="w-4 h-4 rounded-full bg-yellow-400"></button>
-            <button className="w-4 h-4 rounded-full bg-gray-400"></button>
+      <form action="" method="" onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="text"
+          placeholder="Search"
+          name="text"
+          className="w-full rounded p-1 border"
+          value={text}
+          onChange={updateFilter}
+        />
+        {/* category filter */}
+        <div className="flex flex-col items-left mt-5">
+          <h4 className="font-bold">Category</h4>
+          {categories.map((cat) => {
+            return (
+              <button
+                type="button"
+                name="category"
+                key={cat}
+                className={`w-0 ${category === cat && 'bg-gray-400'}`}
+                onClick={updateFilter}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
-      </div>
-      <div className="flex justify-between w-full items-center">
-        <label htmlFor="shipping">Free Shipping</label>
-        <input type='checkbox' id="shipping"/>
-      </div>
-      <button className="bg-red-500 my-5 p-1 px-2 rounded text-black">Clear Filters</button>
+
+        {/* company filter */}
+        <div className="my-5">
+          <h4 className="font-bold mb-2">Company</h4>
+          <select
+            name="company"
+            className="rounded p-1 cursor-pointer border"
+            value={company}
+            onChange={updateFilter}
+          >
+            {companies.map((com) => {
+              return (
+                <option key={com} value={com}>
+                  {com}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+
+        {/* color filter */}
+        <div className="my-5">
+          <h4 className="font-bold mb-2">Colors</h4>
+          <div className="flex gap-1 items-center">
+            {colors.map((col) => {
+              return (
+                <button
+                  className={`w-4 h-4 rounded-full`}
+                  style={{ backgroundColor: `${col}`}}
+                  data-color={col}
+                  name='color'
+                  onClick={updateFilter}
+                >
+                  {col === "all" ? "all" : (color===col?  <FaCheck className="text-white"/> : null)}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* price filter */}
+        <div>
+          <h4>{priceFormat(price)}</h4>
+          <input type='range' min={min_price} max={max_price} onChange={updateFilter} name='price' value={price}/>
+        </div>
+
+        <div className="flex justify-between w-full items-center">
+          <label htmlFor="shipping">Free Shipping</label>
+          <input type="checkbox" id="shipping" />
+        </div>
+        <button className="bg-red-500 my-5 p-1 px-2 rounded text-black">
+          Clear Filters
+        </button>
+      </form>
     </div>
   );
 };
