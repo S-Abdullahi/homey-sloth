@@ -14,7 +14,8 @@ import {
   ERROR_LOADING,
   LOADING_SINGLE_PRODUCT,
   ERROR_SINGLE_PRODUCT,
-  SORT_PRODUCTS
+  SORT_PRODUCTS,
+  DISPLAY_ALL_PRODUCTS
 } from "../actions";
 
 const reducer = (state, action) => {
@@ -35,6 +36,10 @@ const reducer = (state, action) => {
         return {id: product.id, amount: 1}
     })
     return { ...state, products: action.payload, isLoading: false, productAmount: productAmountArray, isError: false };
+  }
+
+  if(action.type === DISPLAY_ALL_PRODUCTS){
+    return {state}
   }
   if(action.type === LOADING_PRODUCT){
     return {...state, isLoading: true}

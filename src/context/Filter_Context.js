@@ -7,7 +7,9 @@ import {
   SORT_PRODUCTS,
   UPDATE_SORT_PRODUCT,
   FILTER_PRODUCT,
-  UPDATE_FILTER
+  UPDATE_FILTER,
+  CLEAR_FILTER,
+  GET_PRICE
 } from "../actions";
 
 const initialState = {
@@ -32,9 +34,9 @@ const filterContext = React.createContext();
 export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const { state: product_state } = useProductContext();
-
   function getFullProducts() {
     dispatch({ type: GET_FULL_PRODUCT, payload: product_state.products });
+    dispatch({type: GET_PRICE})
   }
   function getFilteredProducts() {
     dispatch({ type: GET_FILTER_PRODUCT });
@@ -48,28 +50,40 @@ export const FilterProvider = ({ children }) => {
   function updateFilter(e){
     const name = e.target.name
     let value = e.target.value
-    if(name === 'category'){
-        value = e.target.textContent
-    }
-    if(name === 'color'){
-        value = e.target.dataset.color
-    }
-    if(name === 'price'){
-        value = Number(value)
-    }
+    switch(name){
+        case 'category':
+            value = e.target.textContent;
+            break;
+        case 'color':
+            value = e.target.dataset.color;
+            break;
+        case 'price':
+            value = Number(value);
+            break;
+        case 'shipping':
+            value = e.target.checked
+            break;
+        default:
+        }
     dispatch({type: UPDATE_FILTER, payload: {name, value}})
   }
+
+  function clearFilter(){
+    dispatch({type: CLEAR_FILTER})
+  }
+
   useEffect(() => {
     getFullProducts();
-    console.log(state)
   }, [product_state.products]);
 
   useEffect(()=>{
     dispatch({type: SORT_PRODUCTS})
-  },[product_state.products, state.sort])
+    dispatch({type: FILTER_PRODUCT})
+  },[product_state.products, state.sort, state.filter])
+
 
   return (
-    <filterContext.Provider value={{ ...state, sortProduct, updateFilter }}>
+    <filterContext.Provider value={{ ...state, sortProduct, updateFilter, clearFilter }}>
       {children}
     </filterContext.Provider>
   );

@@ -17,6 +17,7 @@ const Filters = () => {
       price,
       shipping,
     },
+    clearFilter
   } = useFilterContext();
 
   // getting unique filter values
@@ -75,10 +76,11 @@ const Filters = () => {
         <div className="my-5">
           <h4 className="font-bold mb-2">Colors</h4>
           <div className="flex gap-1 items-center">
-            {colors.map((col) => {
+            {colors.map((col, index) => {
               return (
                 <button
                   className={`w-4 h-4 rounded-full`}
+                  key={index}
                   style={{ backgroundColor: `${col}`}}
                   data-color={col}
                   name='color'
@@ -97,11 +99,14 @@ const Filters = () => {
           <input type='range' min={min_price} max={max_price} onChange={updateFilter} name='price' value={price}/>
         </div>
 
+            {/* shipping filter */}
         <div className="flex justify-between w-full items-center">
           <label htmlFor="shipping">Free Shipping</label>
-          <input type="checkbox" id="shipping" />
+          <input type="checkbox" id="shipping" name="shipping" onChange={updateFilter} checked={shipping}/>
         </div>
-        <button className="bg-red-500 my-5 p-1 px-2 rounded text-black">
+
+        {/* clear filter */}
+        <button className="bg-red-500 my-5 p-1 px-2 rounded text-black" onClick={clearFilter}>
           Clear Filters
         </button>
       </form>

@@ -6,9 +6,7 @@ import { useFilterContext } from "../context/Filter_Context";
 
 const Sort = () => {
   const { displayGridView, displayListView, state } = useProductContext();
-
-  const { sort, sortProduct } = useFilterContext();
-
+  const { sort, sortProduct, filteredProducts } = useFilterContext();
   const { gridView, listView } = state;
   return (
     <div className="flex items-center gap-4 align-bottom text-sm text-stone-500 mb-5">
@@ -20,7 +18,7 @@ const Sort = () => {
         className={`${listView ? "active-view" : "inactive-view"}`}
         onClick={() => displayListView()}
       />
-      <p> 21 Products Found</p>
+      <p>{filteredProducts.length} Products Found</p>
       <hr className="grow" />
       <p>Sort By</p>
       <select

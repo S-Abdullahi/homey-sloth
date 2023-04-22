@@ -12,7 +12,6 @@ export const getUniqueValues = (data, type) =>{
     if(type === 'colors'){
       valueArray = valueArray.flat()
     }
-    console.log(valueArray)
     return ['all', ...new Set(valueArray)]
 }
 

@@ -11,6 +11,7 @@ import Sort from "./Sort";
 import ListViewItem from "./ListViewItem";
 import SingleProductDesc from "./SingleProductDesc";
 import SingleProductImages from "./singleProductImages";
+import SearchNotFound from "./searchNotFound";
 
 export {
   Item,
@@ -25,5 +26,6 @@ export {
   Sort,
   ListViewItem,
   SingleProductDesc,
-  SingleProductImages
+  SingleProductImages,
+  SearchNotFound
 };

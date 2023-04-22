@@ -17,6 +17,7 @@ import {
   ERROR_LOADING,
   LOADING_SINGLE_PRODUCT,
   ERROR_SINGLE_PRODUCT,
+  DISPLAY_ALL_PRODUCTS
 } from "../actions";
 
 const initialState = {
@@ -103,7 +104,6 @@ export const ProductProvider = ({ children }) => {
     getData();
   }, []);
 
-  
   return (
     <ProductContext.Provider
       value={{

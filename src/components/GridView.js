@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import { useProductContext } from "../context/Products_Context";
 import { useFilterContext } from "../context/Filter_Context";
 import { Link } from "react-router-dom";
+import SearchNotFound from "./searchNotFound";
 
 const GridView = ({filteredProducts}) => {
   const {setSingleProductID, state } = useProductContext();
@@ -17,7 +18,7 @@ const GridView = ({filteredProducts}) => {
       {/* <Loading/> */}
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : (filteredProducts.length < 1 ? <SearchNotFound/> : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {filteredProducts?.map((el) => (
             <Link to={`/products/${el.id}`} key={el.id}>
@@ -25,7 +26,7 @@ const GridView = ({filteredProducts}) => {
             </Link>
           ))}
         </div>
-      )}
+      ))  }
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Sort from "./Sort";
 import ListViewItem from "./ListViewItem";
 import Loading from "./Loading";
 import { useProductContext } from "../context/Products_Context";
+import SearchNotFound from "./searchNotFound";
 
 const ListView = ({filteredProducts}) => {
   const {state } = useProductContext();
@@ -10,7 +11,7 @@ const ListView = ({filteredProducts}) => {
   return (
     <div className="col-span-10 md:pr-20 md:h-screen overflow-scroll scrollbar-hide">
       <Sort />
-      {isLoading ? <Loading/> : (
+      {isLoading ? <Loading/> : filteredProducts < 1 ? <SearchNotFound/> : (
         <div>
           {filteredProducts.map((product) => {
             return <ListViewItem key={product.id} {...product} />;
