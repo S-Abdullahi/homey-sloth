@@ -4,7 +4,7 @@ import { priceFormat } from '../utils/constants'
 
 const ListViewItem = ({id,name, image, description, company, price}  ) => {
   return (
-    <div className='grid grid-cols-2  mb-10 gap-10'>
+    <div className='grid grid-cols-1 md:grid-cols-2  mb-10 gap-10'>
         {/* <div className='w-40 h-40'> */}
             <img src={image} alt={name} className="rounded h-60 w-full object-cover"/>
         {/* </div> */}

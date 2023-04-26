@@ -21,7 +21,6 @@ const filterReducer = (state, action) => {
     };
   }
   if (action.type === GET_PRICE) {
-    // console.log(state.all_products)
     const priceArray = state.all_products?.map((p) => p.price);
     const maxPrice = Math.max(...priceArray);
     return {
@@ -29,7 +28,6 @@ const filterReducer = (state, action) => {
       filter: { ...state.filter, price: maxPrice, max_price: maxPrice },
     };
   }
-
   if (action.type === UPDATE_SORT_PRODUCT) {
     return { ...state, sort: action.payload };
   }
