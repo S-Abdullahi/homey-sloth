@@ -11,11 +11,11 @@ const Sort = () => {
   return (
     <div className="flex items-center gap-4 align-bottom text-sm text-stone-500 mb-5">
       <BsFillGridFill
-        className={`${gridView ? "active-view" : "inactive-view"}`}
+        className={`${gridView ? "active-view" : "inactive-view"} hidden sm:block`}
         onClick={() => displayGridView()}
       />
       <AiOutlineUnorderedList
-        className={`${listView ? "active-view" : "inactive-view"}`}
+        className={`${listView ? "active-view" : "inactive-view"} hidden sm:block`}
         onClick={() => displayListView()}
       />
       <p>{filteredProducts.length} Products Found</p>

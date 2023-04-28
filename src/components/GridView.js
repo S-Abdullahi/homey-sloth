@@ -19,7 +19,7 @@ const GridView = ({filteredProducts}) => {
       {isLoading ? (
         <Loading />
       ) : (filteredProducts.length < 1 ? <SearchNotFound/> : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {filteredProducts?.map((el) => (
             <Link to={`/products/${el.id}`} key={el.id}>
               <Item {...el} />
