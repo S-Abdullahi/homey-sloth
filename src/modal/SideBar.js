@@ -27,7 +27,7 @@ const SideBar = () => {
         })}
       </div>
       <div className="flex justify-evenly gap-10 mt-8 text-xl text-stone-600">
-        <div className="flex justify-center items-center">
+        <Link to="/cart" className="flex justify-center items-center" onClick={() => closeSideBarPanel()}>
           <p>Cart</p>
           <div className="flex relative">
             <BsFillCartFill />
@@ -35,7 +35,7 @@ const SideBar = () => {
               0
             </div>
           </div>
-        </div>
+        </Link>
 
         <div className="flex justify-center items-center">
           <p>Login</p>
