@@ -1,7 +1,7 @@
 import React from "react";
 import { useFilterContext } from "../context/Filter_Context";
 import { getUniqueValues, priceFormat } from "../utils/constants";
-import {FaCheck} from 'react-icons/fa'
+import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
   const {
@@ -17,7 +17,7 @@ const Filters = () => {
       price,
       shipping,
     },
-    clearFilter
+    clearFilter,
   } = useFilterContext();
 
   // getting unique filter values
@@ -38,19 +38,19 @@ const Filters = () => {
         {/* category filter */}
         <div className="flex flex-col items-left mt-5">
           <h4 className="font-bold">Category</h4>
-          {categories.map((cat) => {
-            return (
-              <button
-                type="button"
-                name="category"
-                key={cat}
-                className={`w-0 ${category === cat && 'bg-gray-400'}`}
-                onClick={updateFilter}
-              >
-                {cat}
-              </button>
-            );
-          })}
+            {categories.map((cat) => {
+              return (
+                <button
+                  type="button"
+                  name="category"
+                  key={cat}
+                  className={`w-0 ${category === cat && "bg-gray-400"}`}
+                  onClick={updateFilter}
+                >
+                  {cat}
+                </button>
+              );
+            })}
         </div>
 
         {/* company filter */}
@@ -81,12 +81,16 @@ const Filters = () => {
                 <button
                   className={`w-4 h-4 rounded-full`}
                   key={index}
-                  style={{ backgroundColor: `${col}`}}
+                  style={{ backgroundColor: `${col}` }}
                   data-color={col}
-                  name='color'
+                  name="color"
                   onClick={updateFilter}
                 >
-                  {col === "all" ? "all" : (color===col?  <FaCheck className="text-white"/> : null)}
+                  {col === "all" ? (
+                    "all"
+                  ) : color === col ? (
+                    <FaCheck className="text-white" />
+                  ) : null}
                 </button>
               );
             })}
@@ -96,17 +100,33 @@ const Filters = () => {
         {/* price filter */}
         <div>
           <h4>{priceFormat(price)}</h4>
-          <input type='range' min={min_price} max={max_price} onChange={updateFilter} name='price' value={price}/>
+          <input
+            type="range"
+            min={min_price}
+            max={max_price}
+            onChange={updateFilter}
+            name="price"
+            value={price}
+          />
         </div>
 
-            {/* shipping filter */}
+        {/* shipping filter */}
         <div className="flex justify-between w-full items-center">
           <label htmlFor="shipping">Free Shipping</label>
-          <input type="checkbox" id="shipping" name="shipping" onChange={updateFilter} checked={shipping}/>
+          <input
+            type="checkbox"
+            id="shipping"
+            name="shipping"
+            onChange={updateFilter}
+            checked={shipping}
+          />
         </div>
 
         {/* clear filter */}
-        <button className="bg-red-500 my-5 p-1 px-2 rounded text-black" onClick={clearFilter}>
+        <button
+          className="bg-red-500 my-5 p-1 px-2 rounded text-black"
+          onClick={clearFilter}
+        >
           Clear Filters
         </button>
       </form>

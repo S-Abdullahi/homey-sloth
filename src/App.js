@@ -18,7 +18,7 @@ const App = () => {
   const {openSideBarPanel, state} = useProductContext()
   return (
     <div className="relative">
-      {state.openSideBar && <SideBar/>}
+      <SideBar/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayout />}>

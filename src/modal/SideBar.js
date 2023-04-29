@@ -8,8 +8,9 @@ import CartLoginButton from "../components/CartLoginButton";
 
 const SideBar = () => {
   const { closeSideBarPanel, state } = useProductContext();
+  const {openSideBar} = state
   return (
-    <div className="fixed z-30 top-0 left-0 w-screen bg-white h-screen md:hidden transition ease-linear delay-75">
+    <div className={`fixed z-30 top-0 ${openSideBar ? 'left-0 transition-all duration-300' : '-left-[100%] transition-all duration-300'} w-screen bg-white h-screen md:hidden transition ease-linear delay-75`}>
       <div className="flex justify-between items-center p-10">
         <h3 className="text-2xl font-bold">HomeySloth</h3>
         <FaTimes
