@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
-import {FaTimes} from "react-icons/fa"
 import {RxCross2} from 'react-icons/rx'
 import { useProductContext } from "../context/Products_Context";
 import { menuoptions } from "../menuoption";
@@ -19,15 +18,14 @@ const SideBar = () => {
           onClick={() => closeSideBarPanel()}
         />
       </div>
-      <ul>
+      <div className="flex flex-col">
         {menuoptions.map(option => {
           const {title, url} = option
-          return <li className="hover:bg-stone-300 hover:px-12 transition-all cursor-pointer px-10 py-3" key={title}>
-              {/* <Link to={url}>{title}</Link> */}
+          return <Link to={url} className="hover:bg-stone-300 hover:px-12 transition-all cursor-pointer px-10 py-3" key={title} onClick={() => closeSideBarPanel()}>
               {title}
-          </li>
+          </Link>
         })}
-      </ul>
+      </div>
       <div className="flex justify-center gap-10 mt-8 text-xl text-stone-600">
         <div className="flex justify-center items-center">
           <p>Cart</p>

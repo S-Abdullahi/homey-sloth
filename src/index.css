@@ -21,7 +21,7 @@ code {
 }
 
 .section-paragraph{
-  @apply text-xl text-gray-400 mb-10 text-justify leading-10
+  @apply text-base md:text-xl text-gray-400 mb-10 text-justify leading-6 md:leading-10
 }
 
 .section-head{

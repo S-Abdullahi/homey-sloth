@@ -8,18 +8,18 @@ import {
   Login,
   Products,
   SharedLayout,
-  Error
+  Error,
 } from "./pages";
 // import SideBar from "./components/SideBar";
 import SideBar from "./modal/SideBar";
 import { useProductContext } from "./context/Products_Context";
 
 const App = () => {
-  const {openSideBarPanel, state} = useProductContext()
+  const { openSideBarPanel, state } = useProductContext();
   return (
     <div className="relative">
-      <SideBar/>
       <BrowserRouter>
+        <SideBar />
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />}></Route>
@@ -28,7 +28,7 @@ const App = () => {
             <Route path="/products/:id" element={<EachProduct />}></Route>
             <Route path="cart" element={<Cart />}></Route>
           </Route>
-          <Route path="*" element={<Error/>}></Route>
+          <Route path="*" element={<Error />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
