@@ -9,7 +9,7 @@ import CartLoginButton from "./CartLoginButton";
 const Nav = () => {
   const {openSideBarPanel, state} = useProductContext()
   return (
-    <div className=" p-10  md:px-40 bg-stone-100 flex justify-between">
+    <div className=" p-10 lg:px-40 bg-stone-100 flex justify-between">
       <div>
         <h2 className="text-2xl font-bold">HomeySloth</h2>
       </div>

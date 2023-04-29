@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 import {FaTimes} from "react-icons/fa"
+import {RxCross2} from 'react-icons/rx'
 import { useProductContext } from "../context/Products_Context";
 import { menuoptions } from "../menuoption";
 import CartLoginButton from "../components/CartLoginButton";
@@ -13,8 +14,8 @@ const SideBar = () => {
     <div className={`fixed z-30 top-0 ${openSideBar ? 'left-0 transition-all duration-300' : '-left-[100%] transition-all duration-300'} w-screen bg-white h-screen md:hidden transition ease-linear delay-75`}>
       <div className="flex justify-between items-center p-10">
         <h3 className="text-2xl font-bold">HomeySloth</h3>
-        <FaTimes
-          className="text-2xl text-red-500 mr-8 cursor-pointer"
+        <RxCross2
+          className="text-2xl mr-2 cursor-pointer"
           onClick={() => closeSideBarPanel()}
         />
       </div>

@@ -6,11 +6,11 @@ const About = () => {
   return (
     <div className="text-2xl">
       <BreadCrumb title="About" />
-      <section className="md:flex md:gap-20 mx-40 my-20">
-        <div className="w-1/2">
+      <section className="md:flex md:gap-20 mx-5 my-5 lg:mx-40 md:my-20">
+        <div className="lg:w-1/2 mb-10">
           <img src={dummy} alt="dummy" className="rounded-md" />
         </div>
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <h2 className="section-head">Our Story</h2>
           <div className="section-head-underline"></div>
           <p className="section-paragraph ">
