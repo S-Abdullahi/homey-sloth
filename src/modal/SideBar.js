@@ -26,7 +26,7 @@ const SideBar = () => {
           </Link>
         })}
       </div>
-      <div className="flex justify-center gap-10 mt-8 text-xl text-stone-600">
+      <div className="flex justify-evenly gap-10 mt-8 text-xl text-stone-600">
         <div className="flex justify-center items-center">
           <p>Cart</p>
           <div className="flex relative">
