@@ -11,7 +11,7 @@ const Products = () => {
   return (
     <div className="text-2xl text-center">
       <BreadCrumb title="Product" />
-      <div className="grid px-10 md:grid-cols-12 md:gap-10 md:pl-40 relative mt-20 mb-10">
+      <div className="grid px-5 md:grid-cols-12 md:gap-10 md:pl-40 relative mt-5 md:mt-20 mb-10">
         <Filters />
         {gridView && (
           <GridView

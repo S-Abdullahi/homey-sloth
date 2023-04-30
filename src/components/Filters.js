@@ -25,7 +25,7 @@ const Filters = () => {
   const companies = getUniqueValues(all_products, "company");
   const colors = getUniqueValues(all_products, "colors");
   return (
-    <div className="col-span-2 md:h-screen p-2 text-sm text-left text-gray-500 ">
+    <div className="col-span-2 md:h-screen p-2 text-sm text-left text-gray-500">
       <form action="" method="" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
@@ -38,19 +38,22 @@ const Filters = () => {
         {/* category filter */}
         <div className="flex flex-col items-left mt-5">
           <h4 className="font-bold">Category</h4>
-            {categories.map((cat) => {
+          <div className="flex items-start flex-wrap md:flex-col gap-2 mt-2">
+          {categories.map((cat) => {
               return (
                 <button
                   type="button"
                   name="category"
                   key={cat}
-                  className={`w-0 ${category === cat && "bg-gray-400"}`}
+                  className={`${category === cat ? "bg-gray-400 text-white" : 'bg-gray-100'} rounded p-1`}
                   onClick={updateFilter}
                 >
                   {cat}
                 </button>
               );
             })}
+          </div>
+         
         </div>
 
         {/* company filter */}
