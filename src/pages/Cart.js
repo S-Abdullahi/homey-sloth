@@ -23,12 +23,12 @@ const Cart = () => {
             return <CartItem key={index} {...item} />;
           })}
           {/* <CartItem/> */}
-          <hr className="mx-10 md:mx-40" />
-          <div className="flex justify-between mx-10 md:mx-40 my-5">
-            <button className="bg-stone-500 px-4 py-2 text-base tracking-wide rounded text-white">
+          <hr className="mx-10 lg:mx-40" />
+          <div className="flex justify-between gap-5 mx-10 lg:mx-40 my-5">
+            <button className="bg-stone-500 py-1 px-2 tracking-wide rounded text-white text-xs">
               <Link to="/products">Continue shopping</Link>
             </button>
-            <button className="text-base bg-black text-white px-4 py-2 rounded tracking-wide" onClick={()=>clearCart()}>
+            <button className="text-xs py-1 px-2 bg-black text-white rounded tracking-wide" onClick={()=>clearCart()}>
               Clear Shopping Cart
             </button>
           </div>

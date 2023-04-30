@@ -26,7 +26,7 @@ const EachProduct = () => {
 
   if (isLoadingSingle) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="h-screen flex justify-center items-start">
         <Loading />
       </div>
     );
