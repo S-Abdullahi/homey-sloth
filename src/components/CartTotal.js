@@ -6,8 +6,8 @@ const CartTotal = () => {
   const { state, subTotal, shippingFee, orderTotal } = useProductContext();
   const { cart } = state;
   return (
-    <div className="flex justify-center md:justify-end my-10 gap-5">
-      <div className="mx-10 w-[70%] md:w-[40%] lg:mx-40 flex flex-col gap-5 mb-10">
+    <div className="flex justify-center md:justify-end my-10">
+      <div className="mx-10 w-[70%] md:w-[40%] lg:mx-40 flex flex-col gap-8 mb-10">
         <div className="border rounded p-4">
           <div className="flex justify-between">
             <div className=" mb-5 text-left">
