@@ -39,14 +39,14 @@ const Filters = () => {
         {/* category filter */}
         <div className="flex flex-col items-left mt-5">
           <h4 className="font-bold">Category</h4>
-          <div className="flex items-start flex-wrap md:flex-col gap-2 mt-2">
+          <div className="flex items-start flex-wrap md:flex-col gap-3 mt-2">
           {categories.map((cat) => {
               return (
                 <button
                   type="button"
                   name="category"
                   key={cat}
-                  className={`${category === cat ? "bg-gray-400 text-white" : 'bg-gray-100'} rounded p-1`}
+                  className={`${category === cat ? "bg-gray-400 text-white" : 'bg-gray-100'} rounded py-1 px-2`}
                   onClick={updateFilter}
                 >
                   {cat}
