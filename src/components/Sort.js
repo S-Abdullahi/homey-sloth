@@ -9,7 +9,7 @@ const Sort = () => {
   const { sort, sortProduct, filteredProducts } = useFilterContext();
   const { gridView, listView } = state;
   return (
-    <div className="flex items-center gap-4 align-bottom text-sm text-stone-500 mb-5">
+    <div className="flex items-center gap-[2px] sm:gap-4 align-bottom text-sm text-stone-500 mb-5">
       <BsFillGridFill
         className={`${gridView ? "active-view" : "inactive-view"} hidden sm:block`}
         onClick={() => displayGridView()}
@@ -18,7 +18,7 @@ const Sort = () => {
         className={`${listView ? "active-view" : "inactive-view"} hidden sm:block`}
         onClick={() => displayListView()}
       />
-      <p>{filteredProducts.length} Products Found</p>
+      <p className="">{filteredProducts.length} Products Found</p>
       <hr className="grow" />
       <p>Sort By</p>
       <select

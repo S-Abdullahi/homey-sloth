@@ -49,7 +49,7 @@ const EachProduct = () => {
   return (
     <>
     <BreadCrumb title='Products' product={name}/>
-    <div className="my-20 mx-10 md:mx-40">
+    <div className="my-10 md:my-20 mx-5 lg:mx-40">
       <Link to="/products">
         <button className="btn px-40 mb-10">BACK TO PRODUCTS</button>
       </Link>

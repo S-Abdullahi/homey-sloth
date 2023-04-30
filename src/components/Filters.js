@@ -25,15 +25,16 @@ const Filters = () => {
   const companies = getUniqueValues(all_products, "company");
   const colors = getUniqueValues(all_products, "colors");
   return (
-    <div className="col-span-2 md:h-screen p-2 text-sm text-left text-gray-500">
+    <div className="col-span-12 md:col-span-3 lg:col-span-2 md:h-screen px-2 text-sm text-left text-gray-500">
       <form action="" method="" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="Search"
           name="text"
-          className="w-full rounded p-1 border"
+          className="w-[70%] rounded p-1 border"
           value={text}
           onChange={updateFilter}
+
         />
         {/* category filter */}
         <div className="flex flex-col items-left mt-5">
@@ -78,11 +79,11 @@ const Filters = () => {
         {/* color filter */}
         <div className="my-5">
           <h4 className="font-bold mb-2">Colors</h4>
-          <div className="flex gap-1 items-center">
+          <div className="flex gap-2 items-center">
             {colors.map((col, index) => {
               return (
                 <button
-                  className={`w-4 h-4 rounded-full`}
+                  className={`w-4 h-4 rounded-full leading-4`}
                   key={index}
                   style={{ backgroundColor: `${col}` }}
                   data-color={col}
@@ -114,7 +115,7 @@ const Filters = () => {
         </div>
 
         {/* shipping filter */}
-        <div className="flex justify-between w-full items-center">
+        <div className="flex justify-between w-[150px] leading-4 items-center">
           <label htmlFor="shipping">Free Shipping</label>
           <input
             type="checkbox"

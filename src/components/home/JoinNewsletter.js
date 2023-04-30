@@ -2,9 +2,9 @@ import React from "react";
 
 const JoinNewsletter = () => {
   return (
-    <section className="mx-10 md:mx-40 mb-40 md:flex">
+    <section className="mx-5 lg:mx-40 mb-40 md:flex">
       <div className="md:w-1/2">
-        <h3 className="text-3xl font-bold mb-4">
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">
           Join our newsletter and get 20% off
         </h3>
         <p className="leading-8 text-stone-400">

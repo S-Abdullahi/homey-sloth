@@ -3,9 +3,9 @@ import { valueData } from '../../utils/constants'
 
 const MissionVision = () => {
   return (
-    <section className="bg-stone-300 px-10 md:px-40 py-20 md:h-96 mb-20 md:mb-60">
+    <section className="bg-stone-300 px-5 lg:px-40 py-20 md:h-96 mb-20 md:mb-60">
         <div className="md:flex md:justify-between mb-10">
-          <h3 className="text-3xl text-stone-700 font-bold md:w-1/4">
+          <h3 className="text-2xl md:3xl text-stone-700 font-bold md:w-1/4 mb-4">
             Custom Furniture Built Only For You
           </h3>
           <p className="md:w-1/2 text-stone-700">

@@ -5,9 +5,9 @@ import hero from "../../assets/hero.jpg";
 const Hero = () => {
   return (
     
-    <section className="px-10 md:px-40 mt-10 md:mt-20 flex gap-4 md:justify-between">
+    <section className="px-5 lg:px-40 mt-10 md:mt-20 flex gap-4 md:justify-between">
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl md:text-5xl font-bold mb-7 pt-20 md:w-2/3">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-7 md:pt-20 md:w-2/3">
             Design Your Comfort Zone
           </h1>
           <p className="section-paragraph md:w-10/12">

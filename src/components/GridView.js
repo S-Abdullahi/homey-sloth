@@ -13,13 +13,13 @@ const GridView = ({filteredProducts}) => {
   // const {filteredProducts: filtered} = filteredState
   const {products, isLoading} = state
   return (
-    <div className="col-span-10 md:pr-40 md:h-screen overflow-scroll scrollbar-hide">
+    <div className="col-span-12 md:col-span-9 lg:col-span-10 lg:pr-40 md:h-screen overflow-scroll scrollbar-hide">
       <Sort />
       {/* <Loading/> */}
       {isLoading ? (
         <Loading />
       ) : (filteredProducts.length < 1 ? <SearchNotFound/> : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProducts?.map((el) => (
             <Link to={`/products/${el.id}`} key={el.id}>
               <Item {...el} />
