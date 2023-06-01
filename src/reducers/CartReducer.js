@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART } from "../actions";
+import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART, DELETE_ITEM } from "../actions";
 
 const cartReducer = (state, action) => {
   let actionType = action.type;
@@ -34,10 +34,16 @@ const cartReducer = (state, action) => {
         };
         return { ...state, cart: [...state.cart, newItem] };
       }
+      break;
 
     case CLEAR_CART:
       return {...state, cart: []}
       break;
+    case DELETE_ITEM:
+      const newItem = state.cart.filter(item => item.id !== action.payload)
+      return {...state, cart: newItem}
+      break;
+
 
     default:
       throw new Error(`no matching ${actionType} - action type`);

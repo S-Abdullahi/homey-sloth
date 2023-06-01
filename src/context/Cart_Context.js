@@ -1,7 +1,7 @@
 import React, {useContext, useReducer} from "react";
 import cartReducer from '../reducers/CartReducer'
 import { useProductContext } from "./Products_Context";
-import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART } from "../actions";
+import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART, DELETE_ITEM } from "../actions";
 
 const CartContext = React.createContext()
 
@@ -20,8 +20,12 @@ export const CartProvider = ({children}) =>{
         dispatch({type: CLEAR_CART})
     }
 
+    function deleteItem(id){
+        dispatch({type: DELETE_ITEM, payload: id})
+    }
 
-    return <CartContext.Provider value={{...state, addToCart, clearCart}}>
+
+    return <CartContext.Provider value={{...state, addToCart, clearCart, deleteItem}}>
         {children}
     </CartContext.Provider>
 }
