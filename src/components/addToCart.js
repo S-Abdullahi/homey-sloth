@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import Amount from "./Amount";
 import { useProductContext } from "../context/Products_Context";
+import { useCartContext } from "../context/Cart_Context";
 import { Link } from "react-router-dom";
 
-const AddToCart = ({ colors, stock, uniqueid }) => {
+const AddToCart = ({colors,stock, uniqueid, singleData }) => {
+  const {addToCart} = useCartContext()
   const [amount, setAmount] = useState(1);
-  const [colorIcon, setColorIcon] = useState(colors[0]);
-  const { addToCart } = useProductContext();
+  const [colorIcon, setColorIcon] = useState(singleData?.colors[0]);
 
   function increase() {
     setAmount((oldValue) => {
@@ -32,7 +33,7 @@ const AddToCart = ({ colors, stock, uniqueid }) => {
   return (
     <div>
       <div className="gap-10 mt-5">
-        <p className="font-bold flex">
+        {/* <p className="font-bold flex">
           Colors:
           {colors.map((color) => {
             return (
@@ -50,7 +51,7 @@ const AddToCart = ({ colors, stock, uniqueid }) => {
               </button>
             );
           })}
-        </p>
+        </p> */}
         <div>
           <Amount
             increase={increase}
@@ -61,7 +62,7 @@ const AddToCart = ({ colors, stock, uniqueid }) => {
           <button
             className="btn mt-5"
             onClick={() => {
-              addToCart(uniqueid);
+              addToCart(uniqueid, colorIcon, amount, singleData);
             }}
           >
             <Link to="/cart">ADD TO CART</Link>

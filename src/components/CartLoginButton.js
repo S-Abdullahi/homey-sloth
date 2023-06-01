@@ -2,12 +2,14 @@ import React from 'react'
 import { BsFillCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useProductContext } from '../context/Products_Context';
+import { useCartContext } from '../context/Cart_Context';
 
 
 
 const CartLoginButton = () => {
   const {state} = useProductContext()
-  const {cart} = state
+  // const {cart} = state
+  const {cart} = useCartContext()
   return (
     <div className='flex gap-10'>
          <Link className="hidden md:flex gap-1" to="/cart">

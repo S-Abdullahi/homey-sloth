@@ -6,11 +6,13 @@ import CartTotal from "../components/CartTotal";
 import { BreadCrumb } from "../components";
 import { Link } from "react-router-dom";
 import { useProductContext } from "../context/Products_Context";
+import { useCartContext } from "../context/Cart_Context";
 import { clear } from "@testing-library/user-event/dist/clear";
 
 const Cart = () => {
-  const { state, clearCart } = useProductContext();
-  const { cart } = state;
+  const { state} = useProductContext();
+  const {cart, clearCart} = useCartContext()
+  // const { cart } = state;
   return (
     <div className="text-2xl text-center">
       <BreadCrumb title="Cart" />
@@ -19,7 +21,7 @@ const Cart = () => {
       ) : (
         <>
           <CartTableHead />
-          {cart.map((item, index) => {
+          {cart?.map((item, index) => {
             return <CartItem key={index} {...item} />;
           })}
           {/* <CartItem/> */}

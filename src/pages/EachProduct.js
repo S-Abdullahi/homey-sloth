@@ -46,6 +46,8 @@ const EachProduct = () => {
   } else {
     inStock = "Not In Stock";
   }
+
+console.log(colors)
   return (
     <>
     <BreadCrumb title='Products' product={name}/>
@@ -58,7 +60,7 @@ const EachProduct = () => {
         <div>
           <SingleProductDesc {...singleData} inStock={inStock}/>
           <hr className="mt-2" />
-          <AddToCart {...singleData} uniqueid={id}/>
+          <AddToCart colors={colors} stock={stock} singleData={singleData} uniqueid={id}/>
         </div>
       </div>
     </div>
