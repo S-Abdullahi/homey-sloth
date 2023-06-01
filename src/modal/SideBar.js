@@ -5,9 +5,11 @@ import {RxCross2} from 'react-icons/rx'
 import { useProductContext } from "../context/Products_Context";
 import { menuoptions } from "../menuoption";
 import CartLoginButton from "../components/CartLoginButton";
+import { useCartContext } from "../context/Cart_Context";
 
 const SideBar = () => {
   const { closeSideBarPanel, state } = useProductContext();
+  const {cart} = useCartContext()
   const {openSideBar} = state
   return (
     <div className={`fixed z-30 top-0 ${openSideBar ? 'left-0 transition-all duration-300' : '-left-[100%] transition-all duration-300'} w-screen bg-white h-screen md:hidden transition ease-linear delay-75`}>
@@ -32,7 +34,7 @@ const SideBar = () => {
           <div className="flex relative">
             <BsFillCartFill />
             <div className="rounded-full bg-stone-400 text-white w-6 h-6 flex justify-center items-center absolute left-3 bottom-2">
-              0
+              {cart.length}
             </div>
           </div>
         </Link>
