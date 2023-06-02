@@ -38,7 +38,6 @@ const EachProduct = () => {
     stock,
     colors
   } = singleData;
-  console.log(singleData)
 
   let inStock;
   if (stock > 1) {
@@ -47,7 +46,6 @@ const EachProduct = () => {
     inStock = "Not In Stock";
   }
 
-console.log(colors)
   return (
     <>
     <BreadCrumb title='Products' product={name}/>

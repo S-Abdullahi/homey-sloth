@@ -1,10 +1,12 @@
 import React from "react";
 import { useProductContext } from "../context/Products_Context";
+import { useCartContext } from "../context/Cart_Context";
 import { priceFormat } from "../utils/constants";
 
 const CartTotal = () => {
-  const { state, subTotal, shippingFee, orderTotal } = useProductContext();
-  const { cart } = state;
+  const { state, subTotal, orderTotal } = useProductContext();
+  const {subtotal, shippingFee, grandTotal} = useCartContext()
+  console.log(subtotal)
   return (
     <div className="flex justify-center md:justify-end my-10">
       <div className="mx-10 w-[70%] md:w-[40%] lg:mx-40 flex flex-col gap-8 mb-10">
@@ -15,14 +17,14 @@ const CartTotal = () => {
               <p className="text-base tracking-wide">Shipping Fee:</p>
             </div>
             <div className="text-left">
-              <p className="text-base font-bold">{priceFormat(subTotal)}</p>
+              <p className="text-base font-bold">{priceFormat(subtotal)}</p>
               <p className="text-base">{priceFormat(shippingFee)}</p>
             </div>
           </div>
           <hr />
           <div className="flex justify-between mt-5">
             <p className="font-bold text-base md:text-lg lg:text-2xl">Order Total : </p>
-            <p className="font-bold text-base md:text-lg lg:text-2xl">&nbsp; {priceFormat(orderTotal)}</p>
+            <p className="font-bold text-base md:text-lg lg:text-2xl">&nbsp; {priceFormat(grandTotal)}</p>
           </div>
         </div>
 
