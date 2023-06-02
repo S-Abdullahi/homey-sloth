@@ -5,8 +5,17 @@ import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART, DELETE_ITE
 
 const CartContext = React.createContext()
 
+function getLocalStorage(){
+    let cart = localStorage.getItem('cart');
+    if(cart){
+        return JSON.parse(localStorage.getItem('cart'))
+    }else{
+        return []
+    }
+}
+
 const initialState = {
-    cart: [],
+    cart: getLocalStorage(),
     shippingFee: 50,
     subtotal: 0,
     grandTotal: 0
@@ -29,6 +38,7 @@ export const CartProvider = ({children}) =>{
 
     useEffect(()=>{
         dispatch({type: SUBTOTAL})
+        localStorage.setItem('cart', JSON.stringify(state.cart))
     },[state.cart])
 
 
