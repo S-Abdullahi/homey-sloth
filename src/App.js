@@ -14,6 +14,7 @@ import {
 import SideBar from "./modal/SideBar";
 import { useProductContext } from "./context/Products_Context";
 
+
 const App = () => {
   const { openSideBarPanel, state } = useProductContext();
   return (
