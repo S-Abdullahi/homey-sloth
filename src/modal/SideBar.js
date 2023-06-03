@@ -46,6 +46,9 @@ const SideBar = () => {
             </Link>
           );
         })}
+
+        {myUser && (<Link to='/checkout' className="hover:bg-stone-300 hover:px-12 transition-all cursor-pointer px-10 py-3" onClick={()=>closeSideBarPanel()}>checkout</Link>) }
+        
       </div>
       <div className="flex justify-evenly gap-10 mt-8 text-xl text-stone-600">
         <Link

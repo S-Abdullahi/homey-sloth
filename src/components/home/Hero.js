@@ -1,5 +1,6 @@
 import React from 'react'
 import hero from "../../assets/hero.jpg";
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -16,7 +17,9 @@ const Hero = () => {
             aperiam odio ducimus, obcaecati libero et quia tempora excepturi
             quis alias?
           </p>
-          <button className="btn">SHOP NOW</button>
+          <button className="btn">
+            <Link to='/products'>SHOP NOW</Link>
+          </button>
         </div>
         <div className="hidden md:block md:w-2/5">
           <img src={hero} alt="hero" className="" />

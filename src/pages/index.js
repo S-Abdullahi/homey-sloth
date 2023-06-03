@@ -6,5 +6,8 @@ import Login from "./Login";
 import Products from "./Products";
 import SharedLayout from "./SharedLayout";
 import Error from "./Error";
+import Checkout from "./Checkout";
+import PrivateRoute from "./PrivateRoute";
+import AuthWrapper from "./AuthWrapper";
 
-export { About, Cart, EachProduct, Home, Login, Products, SharedLayout, Error };
+export { About, Cart, EachProduct, Home, Login, Products, SharedLayout, Error, Checkout, PrivateRoute, AuthWrapper };

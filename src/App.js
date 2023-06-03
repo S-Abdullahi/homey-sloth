@@ -5,33 +5,41 @@ import {
   Cart,
   EachProduct,
   Home,
-  Login,
   Products,
   SharedLayout,
   Error,
+  Checkout,
+  PrivateRoute,
+  AuthWrapper,
 } from "./pages";
-// import SideBar from "./components/SideBar";
 import SideBar from "./modal/SideBar";
-import { useProductContext } from "./context/Products_Context";
-
 
 const App = () => {
-  const { openSideBarPanel, state } = useProductContext();
   return (
     <div className="relative">
-      <BrowserRouter>
-        <SideBar />
-        <Routes>
-          <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Home />}></Route>
-            <Route path="about" element={<About />}></Route>
-            <Route path="products" element={<Products />}></Route>
-            <Route path="/products/:id" element={<EachProduct />}></Route>
-            <Route path="cart" element={<Cart />}></Route>
-          </Route>
-          <Route path="*" element={<Error />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <AuthWrapper>
+        <BrowserRouter>
+          <SideBar />
+          <Routes>
+            <Route path="/" element={<SharedLayout />}>
+              <Route index element={<Home />}></Route>
+              <Route path="about" element={<About />}></Route>
+              <Route path="products" element={<Products />}></Route>
+              <Route path="/products/:id" element={<EachProduct />}></Route>
+              <Route path="cart" element={<Cart />}></Route>
+              <Route
+                path="checkout"
+                element={
+                  <PrivateRoute>
+                    <Checkout />
+                  </PrivateRoute>
+                }
+              ></Route>
+            </Route>
+            <Route path="*" element={<Error />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthWrapper>
     </div>
   );
 };

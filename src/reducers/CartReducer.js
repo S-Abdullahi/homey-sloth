@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART, DELETE_ITEM, SUBTOTAL } from "../actions";
+import { ADD_TO_CART, CLEAR_CART, DELETE_ITEM, SUBTOTAL } from "../actions";
 
 const cartReducer = (state, action) => {
   let actionType = action.type;
@@ -43,10 +43,8 @@ const cartReducer = (state, action) => {
       const newItem = state.cart.filter(item => item.id !== action.payload)
       return {...state, cart: newItem}
       break;
-    
     case SUBTOTAL:
       const subtotal = state.cart.map(item => item.subtotal).reduce((acc, item) => acc + item, 0)
-      console.log(subtotal)
       const total = subtotal + state.shippingFee
       return {...state, subtotal: subtotal, grandTotal: total}
       break;
