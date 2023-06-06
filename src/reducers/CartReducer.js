@@ -34,19 +34,23 @@ const cartReducer = (state, action) => {
         };
         return { ...state, cart: [...state.cart, newItem] };
       }
+      // eslint-disable-next-line
       break;
 
     case CLEAR_CART:
       return {...state, cart: []}
+      // eslint-disable-next-line
       break;
     case DELETE_ITEM:
       const newItem = state.cart.filter(item => item.id !== action.payload)
       return {...state, cart: newItem}
+      // eslint-disable-next-line
       break;
     case SUBTOTAL:
       const subtotal = state.cart.map(item => item.subtotal).reduce((acc, item) => acc + item, 0)
       const total = subtotal + state.shippingFee
       return {...state, subtotal: subtotal, grandTotal: total}
+      // eslint-disable-next-line
       break;
     default:
       throw new Error(`no matching ${actionType} - action type`);
