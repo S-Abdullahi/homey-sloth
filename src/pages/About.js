@@ -48,7 +48,7 @@ const About = () => {
           </p>
           <p className="section-paragraph">
             We also offer hassle-free delivery straight to your doorstep. Sit
-            back and relax while we take care of the logistics, ensuring that
+            back and relax while we take care of the logitics, ensuring that
             your new furniture arrives safely and on time. We believe that your
             comfort shouldn't be compromised by the shopping process, and we
             strive to make it as convenient as possible.

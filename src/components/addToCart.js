@@ -65,7 +65,7 @@ const AddToCart = ({colors,stock, uniqueid, singleData }) => {
               addToCart(uniqueid, colorIcon, amount, singleData);
             }}
           >
-            <Link to="/cart">ADD TO CART</Link>
+            <Link to="/cart">Add to Cart</Link>
           </button>
         </div>
       </div>

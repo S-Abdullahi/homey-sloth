@@ -51,9 +51,9 @@ const EachProduct = () => {
     <BreadCrumb title='Products' product={name}/>
     <div className="my-10 md:my-20 mx-5 lg:mx-40">
       <Link to="/products">
-        <button className="btn px-40 mb-10">BACK TO PRODUCTS</button>
+        <button className="btn px-40 mb-10">Back to Products</button>
       </Link>
-      <div className="flex flex-col md:flex-row justify-between gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <SingleProductImages images={images} />
         <div>
           <SingleProductDesc {...singleData} inStock={inStock}/>

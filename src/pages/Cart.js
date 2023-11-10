@@ -27,7 +27,7 @@ const Cart = () => {
           {/* <CartItem/> */}
           <hr className="mx-10 lg:mx-40" />
           <div className="flex justify-between gap-5 mx-10 lg:mx-40 my-5">
-            <button className="bg-stone-500 py-1 px-2 tracking-wide rounded text-white text-xs">
+            <button className="bg-yellow-700 py-1 px-2 tracking-wide rounded text-white text-xs">
               <Link to="/products">Continue shopping</Link>
             </button>
             <button className="text-xs py-1 px-2 bg-black text-white rounded tracking-wide" onClick={()=>clearCart()}>
