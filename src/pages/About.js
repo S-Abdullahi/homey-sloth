@@ -6,11 +6,11 @@ const About = () => {
   return (
     <div className="text-2xl">
       <BreadCrumb title="About" />
-      <section className="md:flex md:gap-20 mx-5 my-5 lg:mx-40 md:my-20">
-        <div className="lg:w-1/2 mb-10">
-          <img src={dummy} alt="dummy" className="rounded-md" />
+      <section className="md:gap-20 mx-5 my-5 md:my-20">
+        <div className="mb-10 lg:float-left lg:w-1/2 mr-6">
+          <img src={dummy} alt="dummy" className="rounded-md " />
         </div>
-        <div className="lg:w-1/2">
+        <div className="">
           <h2 className="section-head">Our Story</h2>
           <div className="section-head-underline"></div>
           <p className="section-paragraph">Welcome to HomeySloth!</p>
@@ -60,8 +60,10 @@ const About = () => {
             HomeySloth has to offer. We're here to help you make your house a
             home.
           </p>
-          <p className="section-paragraph">Thank you for choosing HomeySloth!</p>
-          <p className="The Homey Sloth Team">The HomeySloth Team</p>
+          <p className="section-paragraph">
+            Thank you for choosing HomeySloth!
+          </p>
+          <p className="text-base">The HomeySloth Team</p>
         </div>
       </section>
     </div>

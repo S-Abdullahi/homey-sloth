@@ -7,6 +7,8 @@ import { FilterProvider } from "./context/Filter_Context";
 import { CartProvider } from "./context/Cart_Context";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { UserProvider } from "./context/User_Context";
+import 'react-loading-skeleton/dist/skeleton.css'
+
 // dev-ttcyqr6dnoj8df7m.us.auth0.com
 // y2ezGxPrRbAAilxK5LBSDLDffbWCkTbp
 

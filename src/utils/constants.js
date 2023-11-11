@@ -20,18 +20,18 @@ export const valueData = [
       icon: <GiCompass />,
       title: "Mission",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+        "At HomeySloth, our mission is to enrich lives by providing top-quality, stylish furniture that transforms houses into homes. We aim to curate a collection that combines functionality, comfort, and aesthetic appeal, ensuring that every piece tells a story.",
     },
     {
       icon: <GiDiamondHard />,
       title: "Vision",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+        "Our vision at HomeySloth is to be the go-to online destination for individuals seeking distinctive and well-crafted furniture that mirrors their personal style. We strive to create an immersive shopping experience",
     },
     {
       icon: <GiScrollUnfurled />,
       title: "History",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+        "HomeySloth has evolved from a passion for interior design into a thriving online platform dedicated to providing high-quality furniture for homes across the globe.",
     },
   ];

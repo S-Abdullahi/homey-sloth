@@ -23,8 +23,8 @@ const CartItem = ({id, image, name, price, color, amount, subtotal}) => {
         <div className=" w-1/2 text-left">
           <p className="text-sm font-bold">{name}</p>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-500">color:</span>
-            <div className={`w-3 h-3 rounded bg-[${color[0]}]`}></div>
+            {/* <span className="text-sm text-gray-500">color:</span>
+            <div className={`w-3 h-3 rounded bg-[${color[0]}]`}></div> */}
           </div>
           <p className="text-yellow-500 text-base md:hidden">{priceFormat(price)}</p>
         </div>
